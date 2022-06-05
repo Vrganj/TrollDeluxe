@@ -23,6 +23,7 @@ permissions:
       trolldeluxe.gui: true
       trolldeluxe.help: true
       trolldeluxe.join: true
+      trolldeluxe.keepinventory: true
       trolldeluxe.launch: true
       trolldeluxe.op: true
       trolldeluxe.potato: true

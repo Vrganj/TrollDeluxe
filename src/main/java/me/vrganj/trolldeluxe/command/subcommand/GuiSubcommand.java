@@ -40,6 +40,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
         addTroll(8, Material.RED_BED, "deathbed", "&6&lDEATHBED");
 
         addTroll(12, Material.KNOWLEDGE_BOOK, "demo", "&6&lDEMO");
+        addTroll(13, Material.CHEST, "keepinventory", "&6&lFAKE KEEP INVENTORY");
         addTroll(14, Material.COOKED_CHICKEN, "starve", "&6&lSTARVE");
     }
 
