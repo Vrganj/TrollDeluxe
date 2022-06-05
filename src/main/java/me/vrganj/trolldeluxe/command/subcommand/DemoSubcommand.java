@@ -19,14 +19,14 @@ public class DemoSubcommand extends Subcommand {
         // Player#showDemoScreen exists only since 1.18+
 
         try {
-            Method method = target.getClass().getMethod("showDemoScreen");
-            method.invoke(target);
-            Util.send(sender, "Displayed demo screen to &e" + target.getName() + "!");
-
             // InventoryCloseEvent doesn't get called
             // when the demo screen is showed to a player,
             // so it must be done manually.
             target.closeInventory();
+
+            Method method = target.getClass().getMethod("showDemoScreen");
+            method.invoke(target);
+            Util.send(sender, "Displayed demo screen to &e" + target.getName() + "!");
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
             Util.send(sender, "&cThis feature only works on 1.18+");
         }
