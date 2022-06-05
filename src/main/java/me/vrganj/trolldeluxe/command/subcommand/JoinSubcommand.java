@@ -4,16 +4,16 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 import java.util.List;
 
 public class JoinSubcommand extends Subcommand {
-    private final Configuration config;
+    private final Plugin plugin;
 
-    public JoinSubcommand(Configuration config) {
-        this.config = config;
+    public JoinSubcommand(Plugin plugin) {
+        this.plugin = plugin;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class JoinSubcommand extends Subcommand {
         List<Player> target = getPlayers(sender, args, 1);
         String fakePlayer = getString(args, 2);
 
-        String message = config.getString("join message");
+        String message = plugin.getConfig().getString("join message");
 
         if (message == null) {
             throw new CommandException("&c'join message' field in config not found");

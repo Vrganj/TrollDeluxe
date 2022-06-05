@@ -4,17 +4,17 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
+import org.bukkit.plugin.Plugin;
 
 import java.util.List;
 
 public class TntSubcommand extends Subcommand {
-    private final Configuration config;
+    private final Plugin plugin;
 
-    public TntSubcommand(Configuration config) {
-        this.config = config;
+    public TntSubcommand(Plugin plugin) {
+        this.plugin = plugin;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class TntSubcommand extends Subcommand {
 
         for (Player player : target) {
             player.getWorld().spawn(player.getLocation(), TNTPrimed.class, entity -> {
-                entity.setFuseTicks(config.getInt("tnt fuse ticks", 40));
+                entity.setFuseTicks(plugin.getConfig().getInt("tnt fuse ticks", 40));
             });
         }
 

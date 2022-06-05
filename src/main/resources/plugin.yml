@@ -27,6 +27,7 @@ permissions:
       trolldeluxe.launch: true
       trolldeluxe.op: true
       trolldeluxe.potato: true
+      trolldeluxe.reload: true
       trolldeluxe.say: true
       trolldeluxe.smite: true
       trolldeluxe.starve: true
