@@ -8,3 +8,7 @@ tnt fuse ticks: 40
 # The speed at which /td launch
 # will launch the players at
 launch velocity: 100
+
+# How many wolves /td wolf
+# should spawn
+wolves: 3

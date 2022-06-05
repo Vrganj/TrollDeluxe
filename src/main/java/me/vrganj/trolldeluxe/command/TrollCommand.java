@@ -34,6 +34,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("smite", new SmiteSubcommand());
         subcommands.put("starve", new StarveSubcommand());
         subcommands.put("tnt", new TntSubcommand(plugin));
+        subcommands.put("wolf", new WolfSubcommand(plugin));
     }
 
     @Override
