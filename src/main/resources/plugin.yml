@@ -2,7 +2,7 @@ main: me.vrganj.trolldeluxe.TrollDeluxe
 name: TrollDeluxe
 description: Have fun and troll others!
 author: Vrganj
-version: 0.8
+version: ${version}
 api-version: 1.13
 
 commands:

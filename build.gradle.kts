@@ -21,3 +21,9 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
     }
 }
+
+tasks.withType<ProcessResources> {
+    filesMatching("**/plugin.yml") {
+        expand("version" to project.version)
+    }
+}
