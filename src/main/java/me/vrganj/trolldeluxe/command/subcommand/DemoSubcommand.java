@@ -16,6 +16,7 @@ public class DemoSubcommand extends Subcommand {
         Player target = getPlayer(args, 1);
 
         // TODO: hack something up so this works on lower versions
+        // Player#showDemoScreen exists only since 1.18+
 
         try {
             Method method = target.getClass().getMethod("showDemoScreen");

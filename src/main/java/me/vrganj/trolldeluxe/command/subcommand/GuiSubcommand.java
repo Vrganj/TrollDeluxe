@@ -38,6 +38,9 @@ public class GuiSubcommand extends Subcommand implements Listener {
         addTroll(6, Material.DIAMOND, "op", "&6&lFAKE OP");
         addTroll(7, Material.BLAZE_ROD, "smite", "&6&lSMITE");
         addTroll(8, Material.RED_BED, "deathbed", "&6&lDEATHBED");
+
+        addTroll(12, Material.KNOWLEDGE_BOOK, "demo", "&6&lDEMO");
+        addTroll(14, Material.COOKED_CHICKEN, "starve", "&6&lSTARVE");
     }
 
     private void addTroll(int slot, Material material, String command, String name) {
