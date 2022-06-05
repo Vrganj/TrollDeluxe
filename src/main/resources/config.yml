@@ -12,3 +12,7 @@ launch velocity: 100
 # How many wolves /td wolf
 # should spawn
 wolves: 3
+
+# Disable the update check on
+# plugin startup
+disable update check: false
