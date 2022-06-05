@@ -43,7 +43,7 @@ public class HelpSubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return null;
+        return "List all of the subcommands or show info about a specific one";
     }
 
     @Override

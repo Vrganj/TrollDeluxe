@@ -29,7 +29,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
     public GuiSubcommand(TrollDeluxe plugin) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
 
-        inventory = Bukkit.createInventory(null, 6 * 9, "Troll Deluxe");
+        inventory = Bukkit.createInventory(null, 6 * 9, plugin.toString());
 
         ItemStack border = new ItemBuilder(Material.YELLOW_STAINED_GLASS_PANE).setName("&r").build();
 
@@ -37,6 +37,22 @@ public class GuiSubcommand extends Subcommand implements Listener {
             inventory.setItem(i, border);
             inventory.setItem(i + 5 * 9, border);
         }
+
+        ItemStack note = new ItemBuilder(Material.WRITABLE_BOOK)
+                .setName("&eAnd that's not all!")
+                .setLore(
+                        "",
+                        "&r&fThere are more trolls you",
+                        "&r&fcan use, but which are not",
+                        "&r&fin the troll GUI currently!",
+                        "",
+                        "&r&e/td help",
+                        ""
+                )
+                .build();
+
+        inventory.setItem(49, note);
+        trolls[49] = "help";
 
         addTroll(19, Material.BEDROCK, "cage", "&6&lCAGE");
         addTroll(20, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
@@ -90,7 +106,10 @@ public class GuiSubcommand extends Subcommand implements Listener {
             if (troll != null) {
                 player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 100f, 2f);
 
-                if (event.getClick() != ClickType.RIGHT) {
+                if (troll.equals("help")) {
+                    player.performCommand("trolldeluxe help");
+                    player.closeInventory();
+                } else if (event.getClick() != ClickType.RIGHT) {
                     String target = targetMap.get(player.getUniqueId());
                     player.performCommand("trolldeluxe " + troll + " " + target);
                 } else {
