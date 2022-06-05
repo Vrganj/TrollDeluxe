@@ -82,10 +82,9 @@ public class GuiSubcommand extends Subcommand implements Listener {
         }
 
         Player player = (Player) sender;
-        Player target = getPlayer(args, 1);
+        String target = getString(args, 1);
 
-        targetMap.put(player.getUniqueId(), target.getName());
-
+        targetMap.put(player.getUniqueId(), target);
         player.openInventory(inventory);
     }
 
@@ -142,6 +141,6 @@ public class GuiSubcommand extends Subcommand implements Listener {
 
     @Override
     public String getUsage() {
-        return "gui <player>";
+        return "gui <players>";
     }
 }

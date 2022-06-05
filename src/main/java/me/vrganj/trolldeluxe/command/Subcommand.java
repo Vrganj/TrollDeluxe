@@ -2,10 +2,10 @@ package me.vrganj.trolldeluxe.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -20,13 +20,21 @@ public abstract class Subcommand {
         return null;
     }
 
-    protected List<Player> getPlayers(String[] args, int index) throws CommandException {
+    protected List<Player> getPlayers(CommandSender sender, String[] args, int index) throws CommandException {
+        List<Player> result = new ArrayList<>();
+
         if (index < args.length) {
-            if (args[index].equals("*")) {
-                return new ArrayList<>(Bukkit.getOnlinePlayers());
+            for (Entity entity : Bukkit.selectEntities(sender, args[index])) {
+                if (entity instanceof Player) {
+                    result.add((Player) entity);
+                }
             }
 
-            return Collections.singletonList(getPlayer(args, index));
+            if (result.isEmpty()) {
+                throw new CommandException("&cNo player was found!");
+            }
+
+            return result;
         }
 
         throw new CommandException("&c/trolldeluxe " + getUsage());

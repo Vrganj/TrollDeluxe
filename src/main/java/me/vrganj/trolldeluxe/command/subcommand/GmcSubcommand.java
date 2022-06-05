@@ -6,13 +6,15 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class GmcSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
-        Util.sendRaw(target, "&7&o[Server: Set " + target.getName() + "'s game mode to Creative Mode]");
-        Util.send(sender, "Sent a fake gmc message to &e" + target.getName() + "!");
+        List<Player> target = getPlayers(sender, args, 1);
+        target.forEach(player -> Util.sendRaw(player, "&7&o[Server: Set " + player.getName() + "'s game mode to Creative Mode]"));
+        Util.send(sender, "Sent a fake gmc message to &e" + args[1] + "!");
     }
 
     @Override
@@ -27,6 +29,6 @@ public class GmcSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "gmc <player>";
+        return "gmc <players>";
     }
 }

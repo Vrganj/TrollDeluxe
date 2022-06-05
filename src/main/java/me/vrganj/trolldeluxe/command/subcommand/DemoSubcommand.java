@@ -8,25 +8,30 @@ import org.bukkit.entity.Player;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 public class DemoSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
+        List<Player> target = getPlayers(sender, args, 1);
 
         // TODO: hack something up so this works on lower versions
         // Player#showDemoScreen exists only since 1.18+
 
         try {
-            // InventoryCloseEvent doesn't get called
-            // when the demo screen is showed to a player,
-            // so it must be done manually.
-            target.closeInventory();
+            Method method = Player.class.getMethod("showDemoScreen");
 
-            Method method = target.getClass().getMethod("showDemoScreen");
-            method.invoke(target);
-            Util.send(sender, "Displayed demo screen to &e" + target.getName() + "!");
+            for (Player player : target) {
+                // InventoryCloseEvent doesn't get called
+                // when the demo screen is showed to a player,
+                // so it must be done manually.
+                player.closeInventory();
+
+                method.invoke(player);
+            }
+
+            Util.send(sender, "Displayed demo screen to &e" + args[1] + "!");
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
             Util.send(sender, "&cThis feature only works on 1.18+");
         }
@@ -34,7 +39,7 @@ public class DemoSubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Make a player think they're playing the demo version of Minecraft";
+        return "Make players think they're playing the demo version of Minecraft";
     }
 
     @Override
@@ -44,6 +49,6 @@ public class DemoSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "demo <player>";
+        return "demo <players>";
     }
 }

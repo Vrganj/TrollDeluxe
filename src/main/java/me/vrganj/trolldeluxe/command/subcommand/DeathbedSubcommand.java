@@ -6,18 +6,20 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class DeathbedSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
-        target.setHealth(1);
-        Util.send(sender, "&e" + target.getName() + " &fhas been damaged to half a heart!");
+        List<Player> target = getPlayers(sender, args, 1);
+        target.forEach(player -> player.setHealth(1));
+        Util.send(sender, "&e" + args[1] + " &fhas been damaged to half a heart!");
     }
 
     @Override
     public String getDescription() {
-        return "Set the player's health to half a heart";
+        return "Set players' health to half a heart";
     }
 
     @Override
@@ -27,6 +29,6 @@ public class DeathbedSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "deathbed <player>";
+        return "deathbed <players>";
     }
 }

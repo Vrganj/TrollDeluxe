@@ -6,19 +6,24 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class SaySubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
+        List<Player> target = getPlayers(sender, args, 1);
         String message = consume(args, 2);
 
-        target.chat(message);
-        Util.send(sender, "Made &e" + target.getName() + " &fsay &e" + message + "&e!");
+        for (Player player : target) {
+            player.chat(message);
+        }
+
+        Util.send(sender, "Made &e" + args[1] + " &fsay &e" + message + "&e!");
     }
 
     @Override
     public String getDescription() {
-        return "Make a player say or execute something";
+        return "Make players say or execute something";
     }
 
     @Override
@@ -28,6 +33,6 @@ public class SaySubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "say <player> <message>";
+        return "say <players> <message>";
     }
 }

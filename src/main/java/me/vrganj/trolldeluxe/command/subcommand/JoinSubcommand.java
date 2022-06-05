@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class JoinSubcommand extends Subcommand {
     private final Configuration config;
 
@@ -16,7 +18,7 @@ public class JoinSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
+        List<Player> target = getPlayers(sender, args, 1);
         String fakePlayer = getString(args, 2);
 
         String message = config.getString("join message");
@@ -25,8 +27,10 @@ public class JoinSubcommand extends Subcommand {
             throw new CommandException("&c'join message' field in config not found");
         }
 
-        Util.sendRaw(target, String.format(message, fakePlayer));
-        Util.send(sender, "Sent a fake join message to &e" + target.getName() + "!");
+        String joinMessage = String.format(message, fakePlayer);
+        target.forEach(player -> Util.sendRaw(player, joinMessage));
+
+        Util.send(sender, "Sent a fake join message to &e" + args[1] + "!");
     }
 
     @Override
@@ -41,6 +45,6 @@ public class JoinSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "join <player> <fake player>";
+        return "join <players> <fake player>";
     }
 }

@@ -6,18 +6,20 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class SmiteSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
-        target.getWorld().strikeLightningEffect(target.getLocation());
-        Util.send(sender, "&e" + target.getName() + " &fhas been struck!");
+        List<Player> target = getPlayers(sender, args, 1);
+        target.forEach(player -> player.getWorld().strikeLightningEffect(player.getLocation()));
+        Util.send(sender, "&e" + args[1] + " &fhas been struck!");
     }
 
     @Override
     public String getDescription() {
-        return "Strike a player with no damage";
+        return "Strike players with no damage";
     }
 
     @Override
@@ -27,6 +29,6 @@ public class SmiteSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "smite <player>";
+        return "smite <players>";
     }
 }

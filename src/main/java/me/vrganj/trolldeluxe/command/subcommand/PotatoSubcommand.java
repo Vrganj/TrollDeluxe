@@ -8,23 +8,28 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
+
 public class PotatoSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
+        List<Player> target = getPlayers(sender, args, 1);
         ItemStack potato = new ItemStack(Material.POTATO, 64);
-        target.getInventory().setArmorContents(new ItemStack[] { potato, potato, potato, potato });
 
-        for (int i = 0; i < 4 * 9; ++i) {
-            target.getInventory().setItem(i, potato);
+        for (Player player : target) {
+            player.getInventory().setArmorContents(new ItemStack[]{potato, potato, potato, potato});
+
+            for (int i = 0; i < 4 * 9; ++i) {
+                player.getInventory().setItem(i, potato);
+            }
         }
 
-        Util.send(sender, "&e" + target.getName() + " &fhas been potatoed!");
+        Util.send(sender, "&e" + args[1] + " &fhas been potatoed!");
     }
 
     @Override
     public String getDescription() {
-        return "Fill a player up with potatoes!";
+        return "Fill players up with potatoes!";
     }
 
     @Override
@@ -34,6 +39,6 @@ public class PotatoSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "potato <player>";
+        return "potato <players>";
     }
 }

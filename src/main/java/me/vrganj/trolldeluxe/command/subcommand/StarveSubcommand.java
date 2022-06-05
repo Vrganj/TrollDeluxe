@@ -6,18 +6,20 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class StarveSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
-        target.setFoodLevel(0);
-        Util.send(sender, "Starved &e" + target.getName() + "!");
+        List<Player> target = getPlayers(sender, args, 1);
+        target.forEach(player -> player.setFoodLevel(0));
+        Util.send(sender, "Starved &e" + args[1] + "!");
     }
 
     @Override
     public String getDescription() {
-        return "Clear a player's hunger bar";
+        return "Clear players' hunger bar";
     }
 
     @Override
@@ -27,6 +29,6 @@ public class StarveSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "starve <player>";
+        return "starve <players>";
     }
 }

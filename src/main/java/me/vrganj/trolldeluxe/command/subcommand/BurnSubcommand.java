@@ -6,18 +6,20 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class BurnSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
-        target.setFireTicks(10 * 20);
-        Util.send(sender, "Set &e" + target.getName() + " &fon fire!");
+        List<Player> target = getPlayers(sender, args, 1);
+        target.forEach(player -> player.setFireTicks(10 * 20));
+        Util.send(sender, "Set &e" + args[1] + " &fon fire!");
     }
 
     @Override
     public String getDescription() {
-        return "Set a player on fire";
+        return "Set players on fire";
     }
 
     @Override
@@ -27,6 +29,6 @@ public class BurnSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "burn <player>";
+        return "burn <players>";
     }
 }

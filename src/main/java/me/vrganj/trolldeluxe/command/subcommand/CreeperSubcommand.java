@@ -7,18 +7,20 @@ import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class CreeperSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        Player target = getPlayer(args, 1);
-        target.playSound(target.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1.0f, 1.0f);
-        Util.send(sender, "&e" + target.getName() + " &fhas been scared!");
+        List<Player> target = getPlayers(sender, args, 1);
+        target.forEach(player -> player.playSound(player.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1.0f, 1.0f));
+        Util.send(sender, "&e" + args[1] + " &fhas been scared!");
     }
 
     @Override
     public String getDescription() {
-        return "Play a creeper sound to a player";
+        return "Play a creeper sound to players";
     }
 
     @Override
@@ -28,6 +30,6 @@ public class CreeperSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "creeper <player>";
+        return "creeper <players>";
     }
 }
