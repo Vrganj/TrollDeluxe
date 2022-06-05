@@ -30,5 +30,6 @@ permissions:
       trolldeluxe.say: true
       trolldeluxe.smite: true
       trolldeluxe.starve: true
+      trolldeluxe.tnt: true
   trolldeluxe.help:
     default: true

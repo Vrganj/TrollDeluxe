@@ -26,12 +26,13 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("help", new HelpSubcommand(subcommands));
         subcommands.put("join", new JoinSubcommand(plugin.getConfig()));
         subcommands.put("keepinventory", new KeepInventorySubcommand());
-        subcommands.put("launch", new LaunchSubcommand());
+        subcommands.put("launch", new LaunchSubcommand(plugin.getConfig()));
         subcommands.put("op", new OpSubcommand());
         subcommands.put("potato", new PotatoSubcommand());
         subcommands.put("say", new SaySubcommand());
         subcommands.put("smite", new SmiteSubcommand());
         subcommands.put("starve", new StarveSubcommand());
+        subcommands.put("tnt", new TntSubcommand(plugin.getConfig()));
     }
 
     @Override

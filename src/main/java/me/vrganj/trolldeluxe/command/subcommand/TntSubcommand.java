@@ -6,14 +6,14 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
-import org.bukkit.util.Vector;
+import org.bukkit.entity.TNTPrimed;
 
 import java.util.List;
 
-public class LaunchSubcommand extends Subcommand {
+public class TntSubcommand extends Subcommand {
     private final Configuration config;
 
-    public LaunchSubcommand(Configuration config) {
+    public TntSubcommand(Configuration config) {
         this.config = config;
     }
 
@@ -22,24 +22,26 @@ public class LaunchSubcommand extends Subcommand {
         List<Player> target = getPlayers(sender, args, 1);
 
         for (Player player : target) {
-            player.setVelocity(new Vector(0.0, config.getDouble("launch velocity", 100), 0.0));
+            player.getWorld().spawn(player.getLocation(), TNTPrimed.class, entity -> {
+                entity.setFuseTicks(config.getInt("tnt fuse ticks", 40));
+            });
         }
 
-        Util.send(sender, "Launched &e" + args[1] + "!");
+        Util.send(sender, "Spawned TNT next to &e" + args[1] + "!");
     }
 
     @Override
     public String getDescription() {
-        return "Launch players far up into the sky";
+        return "Spawn TNT next to players";
     }
 
     @Override
     public String getPermission() {
-        return "trolldeluxe.launch";
+        return "trolldeluxe.tnt";
     }
 
     @Override
     public String getUsage() {
-        return "launch <players>";
+        return "tnt <players>";
     }
 }

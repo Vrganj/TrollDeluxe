@@ -1,1 +1,10 @@
+# Fake join message for /td join
 join message: '&e%s &ejoined the game'
+
+# How many ticks it takes for the TNT
+# spawned by /td tnt to blow up
+tnt fuse ticks: 40
+
+# The speed at which /td launch
+# will launch the players at
+launch velocity: 100
