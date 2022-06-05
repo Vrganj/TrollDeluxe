@@ -18,6 +18,7 @@ permissions:
       trolldeluxe.cage: true
       trolldeluxe.creeper: true
       trolldeluxe.deathbed: true
+      trolldeluxe.demo: true
       trolldeluxe.gmc: true
       trolldeluxe.gui: true
       trolldeluxe.join: true
