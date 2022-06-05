@@ -23,27 +23,34 @@ import java.util.UUID;
 
 public class GuiSubcommand extends Subcommand implements Listener {
     private final Map<UUID, String> targetMap = new HashMap<>();
-    private final String[] trolls = new String[36];
+    private final String[] trolls = new String[6*9];
     private final Inventory inventory;
 
     public GuiSubcommand(TrollDeluxe plugin) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
 
-        inventory = Bukkit.createInventory(null, 2 * 9, "Troll Deluxe");
+        inventory = Bukkit.createInventory(null, 6 * 9, "Troll Deluxe");
 
-        addTroll(0, Material.POTATO, "potato", "&6&lPOTATO");
-        addTroll(1, Material.BEDROCK, "cage", "&6&lCAGE");
-        addTroll(2, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
-        addTroll(3, Material.CREEPER_HEAD, "creeper", "&6&lCREEPER");
-        addTroll(4, Material.FLINT_AND_STEEL, "burn", "&6&lBURN");
-        addTroll(5, Material.GOLD_INGOT, "gmc", "&6&lFAKE GMC");
-        addTroll(6, Material.DIAMOND, "op", "&6&lFAKE OP");
-        addTroll(7, Material.BLAZE_ROD, "smite", "&6&lSMITE");
-        addTroll(8, Material.RED_BED, "deathbed", "&6&lDEATHBED");
+        ItemStack border = new ItemBuilder(Material.YELLOW_STAINED_GLASS_PANE).setName("&r").build();
 
-        addTroll(12, Material.KNOWLEDGE_BOOK, "demo", "&6&lDEMO");
-        addTroll(13, Material.CHEST, "keepinventory", "&6&lFAKE KEEP INVENTORY");
-        addTroll(14, Material.COOKED_CHICKEN, "starve", "&6&lSTARVE");
+        for (int i = 0; i < 9; ++i) {
+            inventory.setItem(i, border);
+            inventory.setItem(i + 5 * 9, border);
+        }
+
+        addTroll(19, Material.BEDROCK, "cage", "&6&lCAGE");
+        addTroll(20, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
+        addTroll(21, Material.CREEPER_HEAD, "creeper", "&6&lCREEPER");
+        addTroll(22, Material.FLINT_AND_STEEL, "burn", "&6&lBURN");
+        addTroll(23, Material.GOLD_INGOT, "gmc", "&6&lFAKE GMC");
+        addTroll(24, Material.DIAMOND, "op", "&6&lFAKE OP");
+        addTroll(25, Material.BLAZE_ROD, "smite", "&6&lSMITE");
+
+        addTroll(29, Material.POTATO, "potato", "&6&lPOTATO");
+        addTroll(30, Material.KNOWLEDGE_BOOK, "demo", "&6&lDEMO");
+        addTroll(31, Material.CHEST, "keepinventory", "&6&lFAKE KEEP INVENTORY");
+        addTroll(32, Material.COOKED_CHICKEN, "starve", "&6&lSTARVE");
+        addTroll(33, Material.RED_BED, "deathbed", "&6&lDEATHBED");
     }
 
     private void addTroll(int slot, Material material, String command, String name) {
@@ -75,8 +82,10 @@ public class GuiSubcommand extends Subcommand implements Listener {
             event.setCancelled(true);
         }
 
-        if (event.getClickedInventory() == inventory) {
-            String troll = trolls[event.getSlot()];
+        int slot = event.getSlot();
+
+        if (event.getClickedInventory() == inventory && slot >= 0 && slot < 6*9) {
+            String troll = trolls[slot];
 
             if (troll != null) {
                 player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 100f, 2f);
