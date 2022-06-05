@@ -25,7 +25,7 @@ public class CageSubcommand extends Subcommand {
             }
         }
 
-        Util.send(sender, "&e" + target.getName() + " &7has been caged!");
+        Util.send(sender, "&e" + target.getName() + " &fhas been caged!");
     }
 
     @Override

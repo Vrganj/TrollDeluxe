@@ -19,7 +19,7 @@ public class PotatoSubcommand extends Subcommand {
             target.getInventory().setItem(i, potato);
         }
 
-        Util.send(sender, "&e" + target.getName() + " &7has been potatoed!");
+        Util.send(sender, "&e" + target.getName() + " &fhas been potatoed!");
     }
 
     @Override

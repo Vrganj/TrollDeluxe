@@ -13,7 +13,7 @@ public class SaySubcommand extends Subcommand {
         String message = consume(args, 2);
 
         target.chat(message);
-        Util.send(sender, "Made &e" + target.getName() + " &7say &e" + message + "&e!");
+        Util.send(sender, "Made &e" + target.getName() + " &fsay &e" + message + "&e!");
     }
 
     @Override

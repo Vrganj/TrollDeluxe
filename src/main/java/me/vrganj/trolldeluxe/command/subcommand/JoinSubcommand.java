@@ -1,8 +1,8 @@
 package me.vrganj.trolldeluxe.command.subcommand;
 
 import me.vrganj.trolldeluxe.Util;
-import me.vrganj.trolldeluxe.command.Subcommand;
 import me.vrganj.trolldeluxe.command.CommandException;
+import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
@@ -25,7 +25,7 @@ public class JoinSubcommand extends Subcommand {
             throw new CommandException("&c'join message' field in config not found");
         }
 
-        target.sendMessage(Util.translate(String.format(message, fakePlayer)));
+        Util.sendRaw(target, String.format(message, fakePlayer));
         Util.send(sender, "Sent a fake join message to &e" + target.getName() + "!");
     }
 

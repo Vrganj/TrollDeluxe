@@ -21,7 +21,12 @@ public class DemoSubcommand extends Subcommand {
         try {
             Method method = target.getClass().getMethod("showDemoScreen");
             method.invoke(target);
-            Util.send(sender, "Displayed demo screen to &e" + target.getName());
+            Util.send(sender, "Displayed demo screen to &e" + target.getName() + "!");
+
+            // InventoryCloseEvent doesn't get called
+            // when the demo screen is showed to a player,
+            // so it must be done manually.
+            target.closeInventory();
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
             Util.send(sender, "&cThis feature only works on 1.18+");
         }
@@ -29,7 +34,7 @@ public class DemoSubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Make player think they're playing the demo version of Minecraft";
+        return "Make a player think they're playing the demo version of Minecraft";
     }
 
     @Override

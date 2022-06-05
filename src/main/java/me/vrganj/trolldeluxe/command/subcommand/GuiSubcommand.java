@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 
 import java.util.HashMap;
@@ -84,7 +84,11 @@ public class GuiSubcommand extends Subcommand implements Listener {
 
     @EventHandler
     @SuppressWarnings("unused")
-    public void onInventoryClose(InventoryCloseEvent event) {
+    public void onQuit(PlayerQuitEvent event) {
+        // Not using InventoryCloseEvent because it
+        // is not called when a player is showed
+        // the demo screen.
+
         targetMap.remove(event.getPlayer().getUniqueId());
     }
 

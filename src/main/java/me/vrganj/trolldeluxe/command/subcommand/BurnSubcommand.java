@@ -12,7 +12,7 @@ public class BurnSubcommand extends Subcommand {
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Player target = getPlayer(args, 1);
         target.setFireTicks(10 * 20);
-        Util.send(sender, "Set &e" + target.getName() + " &7on fire!");
+        Util.send(sender, "Set &e" + target.getName() + " &fon fire!");
     }
 
     @Override

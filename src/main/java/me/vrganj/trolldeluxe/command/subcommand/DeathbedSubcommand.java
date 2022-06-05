@@ -12,7 +12,7 @@ public class DeathbedSubcommand extends Subcommand {
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Player target = getPlayer(args, 1);
         target.setHealth(1);
-        Util.send(sender, "&e" + target.getName() + " &7has been damaged to half a heart!");
+        Util.send(sender, "&e" + target.getName() + " &fhas been damaged to half a heart!");
     }
 
     @Override

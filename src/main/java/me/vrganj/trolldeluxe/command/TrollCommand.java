@@ -23,6 +23,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("demo", new DemoSubcommand());
         subcommands.put("gmc", new GmcSubcommand());
         subcommands.put("gui", new GuiSubcommand(plugin));
+        subcommands.put("help", new HelpSubcommand(subcommands));
         subcommands.put("join", new JoinSubcommand(plugin.getConfig()));
         subcommands.put("launch", new LaunchSubcommand());
         subcommands.put("op", new OpSubcommand());
@@ -34,19 +35,7 @@ public class TrollCommand implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            Util.send(sender, "&f/trolldeluxe command help");
-
-            for (Subcommand subcommand : subcommands.values()) {
-                sender.sendMessage(
-                        Util.translate("&8\u00bb &e" + subcommand.getUsage() + " &f" + subcommand.getDescription())
-                );
-            }
-
-            return true;
-        }
-
-        Subcommand subcommand = subcommands.get(args[0].toLowerCase());
+        Subcommand subcommand = subcommands.get(args.length != 0 ? args[0].toLowerCase() : "help");
 
         if (subcommand == null) {
             Util.send(sender, "&cUnknown subcommand. Run /trolldeluxe help");
@@ -73,6 +62,12 @@ public class TrollCommand implements TabExecutor {
             return subcommands.keySet().stream()
                     .filter(arg -> arg.toLowerCase().startsWith(args[0].toLowerCase()))
                     .collect(Collectors.toList());
+        } else if (args.length >= 2) {
+            Subcommand subcommand = subcommands.get(args[0]);
+
+            if (subcommand != null) {
+                return subcommand.onTabComplete(sender, args);
+            }
         }
 
         return null;

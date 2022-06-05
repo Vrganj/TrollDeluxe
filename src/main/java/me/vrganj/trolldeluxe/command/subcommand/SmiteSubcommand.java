@@ -12,7 +12,7 @@ public class SmiteSubcommand extends Subcommand {
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Player target = getPlayer(args, 1);
         target.getWorld().strikeLightningEffect(target.getLocation());
-        Util.send(sender, "&e" + target.getName() + " &7has been struck!");
+        Util.send(sender, "&e" + target.getName() + " &fhas been struck!");
     }
 
     @Override

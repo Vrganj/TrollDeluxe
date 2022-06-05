@@ -13,7 +13,7 @@ public class LaunchSubcommand extends Subcommand {
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Player target = getPlayer(args, 1);
         target.setVelocity(new Vector(0, 100, 0));
-        Util.send(sender, "&e" + target.getName() + " &7has been launched!");
+        Util.send(sender, "&e" + target.getName() + " &fhas been launched!");
     }
 
     @Override

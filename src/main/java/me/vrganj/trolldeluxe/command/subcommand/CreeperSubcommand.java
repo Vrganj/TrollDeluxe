@@ -13,7 +13,7 @@ public class CreeperSubcommand extends Subcommand {
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Player target = getPlayer(args, 1);
         target.playSound(target.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1.0f, 1.0f);
-        Util.send(sender, "&e" + target.getName() + " &7has been scared!");
+        Util.send(sender, "&e" + target.getName() + " &fhas been scared!");
     }
 
     @Override

@@ -11,7 +11,7 @@ public class GmcSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Player target = getPlayer(args, 1);
-        target.sendMessage(Util.translate("&7&o[Server: Set " + target.getName() + "'s game mode to Creative Mode]"));
+        Util.sendRaw(target, "&7&o[Server: Set " + target.getName() + "'s game mode to Creative Mode]");
         Util.send(sender, "Sent a fake gmc message to &e" + target.getName() + "!");
     }
 

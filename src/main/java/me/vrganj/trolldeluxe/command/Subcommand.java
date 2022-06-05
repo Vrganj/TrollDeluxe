@@ -16,6 +16,10 @@ public abstract class Subcommand {
     public abstract String getPermission();
     public abstract String getUsage();
 
+    public List<String> onTabComplete(CommandSender sender, String[] args) {
+        return null;
+    }
+
     protected List<Player> getPlayers(String[] args, int index) throws CommandException {
         if (index < args.length) {
             if (args[index].equals("*")) {

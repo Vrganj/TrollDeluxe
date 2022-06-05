@@ -31,8 +31,10 @@ public class Util {
     }
 
     public static void send(CommandSender target, String text) {
-        target.sendMessage(translate("&8[&6TrollDeluxe&8] &7" + text));
+        sendRaw(target, "&8[&6TrollDeluxe&8] &f" + text);
     }
 
-
+    public static void sendRaw(CommandSender target, String text) {
+        target.sendMessage(translate(text));
+    }
 }

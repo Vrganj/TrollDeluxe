@@ -11,7 +11,7 @@ public class OpSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Player target = getPlayer(args, 1);
-        target.sendMessage(Util.translate("&7&o[Server: Made " + target.getName() + " a server operator]"));
+        Util.sendRaw(target, "&7&o[Server: Made " + target.getName() + " a server operator]");
         Util.send(sender, "Sent a fake op message to &e" + target.getName() + "!");
     }
 
