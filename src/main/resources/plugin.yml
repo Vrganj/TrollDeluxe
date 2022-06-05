@@ -1,0 +1,29 @@
+main: me.vrganj.trolldeluxe.TrollDeluxe
+name: TrollDeluxe
+description: Have fun and troll others!
+author: Vrganj
+version: 0.7.2
+api-version: 1.13
+
+commands:
+  trolldeluxe:
+    aliases: [td]
+    description: Supports various troll commands.
+
+permissions:
+  trolldeluxe.*:
+    description: Allows all trolls
+    children:
+      trolldeluxe.burn: true
+      trolldeluxe.cage: true
+      trolldeluxe.creeper: true
+      trolldeluxe.deathbed: true
+      trolldeluxe.gmc: true
+      trolldeluxe.gui: true
+      trolldeluxe.join: true
+      trolldeluxe.launch: true
+      trolldeluxe.op: true
+      trolldeluxe.potato: true
+      trolldeluxe.say: true
+      trolldeluxe.smite: true
+      trolldeluxe.starve: true
