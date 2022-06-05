@@ -11,9 +11,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +47,8 @@ public class GuiSubcommand extends Subcommand implements Listener {
     }
 
     private void addTroll(int slot, Material material, String command, String name) {
-        inventory.setItem(slot, new ItemBuilder(material).setName(name).build());
+        ItemStack item = new ItemBuilder(material).setName(name).setLore("", "&r&7(Right-click for help)", "").build();
+        inventory.setItem(slot, item);
         trolls[slot] = command;
     }
 
@@ -77,8 +80,14 @@ public class GuiSubcommand extends Subcommand implements Listener {
 
             if (troll != null) {
                 player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 100f, 2f);
-                String target = targetMap.get(player.getUniqueId());
-                player.performCommand("trolldeluxe " + troll + " " + target);
+
+                if (event.getClick() != ClickType.RIGHT) {
+                    String target = targetMap.get(player.getUniqueId());
+                    player.performCommand("trolldeluxe " + troll + " " + target);
+                } else {
+                    player.performCommand("trolldeluxe help " + troll);
+                    player.closeInventory();
+                }
             }
         }
     }
