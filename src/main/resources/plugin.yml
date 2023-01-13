@@ -23,6 +23,7 @@ permissions:
       trolldeluxe.gmc: true
       trolldeluxe.gui: true
       trolldeluxe.help: true
+      trolldeluxe.invsee: true
       trolldeluxe.join: true
       trolldeluxe.keepinventory: true
       trolldeluxe.launch: true
