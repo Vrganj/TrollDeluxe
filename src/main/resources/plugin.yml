@@ -14,6 +14,7 @@ permissions:
   trolldeluxe.*:
     description: Allows all trolls
     children:
+      trolldeluxe.anvil: true
       trolldeluxe.burn: true
       trolldeluxe.cage: true
       trolldeluxe.creeper: true

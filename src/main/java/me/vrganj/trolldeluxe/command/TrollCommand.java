@@ -16,6 +16,7 @@ public class TrollCommand implements TabExecutor {
     private final Map<String, Subcommand> subcommands = new HashMap<>();
 
     public TrollCommand(TrollDeluxe plugin) {
+        subcommands.put("anvil", new AnvilSubcommand());
         subcommands.put("burn", new BurnSubcommand());
         subcommands.put("cage", new CageSubcommand());
         subcommands.put("creeper", new CreeperSubcommand());
