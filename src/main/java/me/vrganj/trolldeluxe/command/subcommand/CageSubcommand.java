@@ -3,8 +3,8 @@ package me.vrganj.trolldeluxe.command.subcommand;
 import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
-import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -17,14 +17,12 @@ public class CageSubcommand extends Subcommand {
         List<Player> target = getPlayers(sender, args, 1);
 
         for (Player player : target) {
-            Location location = player.getEyeLocation();
+            Block origin = player.getEyeLocation().getBlock();
 
-            for (int dx = -2; dx <= 2; ++dx) {
-                for (int dy = -2; dy <= 2; ++dy) {
-                    for (int dz = -2; dz <= 2; ++dz) {
-                        if (Math.abs(dx) == 2 || Math.abs(dy) == 2 || Math.abs(dz) == 2) {
-                            location.clone().add(dx, dy, dz).getBlock().setType(Material.BEDROCK);
-                        }
+            for (int dx = -2; dx <= 2; dx += 4) {
+                for (int dy = -2; dy <= 2; dy += 4) {
+                    for (int dz = -2; dz <= 2; dz += 4) {
+                        origin.getRelative(dx, dy, dz).setType(Material.BEDROCK);
                     }
                 }
             }

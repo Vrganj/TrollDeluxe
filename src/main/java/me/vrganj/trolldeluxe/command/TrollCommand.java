@@ -43,17 +43,15 @@ public class TrollCommand implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Subcommand subcommand = subcommands.get(args.length != 0 ? args[0].toLowerCase() : "help");
 
-        if (subcommand == null) {
-            Util.send(sender, "&cUnknown subcommand. Run /trolldeluxe help");
-            return true;
-        }
-
-        if (!sender.hasPermission(subcommand.getPermission())) {
-            Util.send(sender, "&cYou have insufficient permissions!");
-            return true;
-        }
-
         try {
+            if (subcommand == null) {
+                throw new CommandException("&cUnknown command. Run /trolldeluxe help");
+            }
+
+            if (!sender.hasPermission(subcommand.getPermission())) {
+                throw new CommandException("&cYou have insufficient permissions!");
+            }
+
             subcommand.execute(sender, args);
         } catch (CommandException e) {
             Util.send(sender, e.getMessage());
@@ -69,7 +67,7 @@ public class TrollCommand implements TabExecutor {
                     .filter(arg -> arg.toLowerCase().startsWith(args[0].toLowerCase()))
                     .collect(Collectors.toList());
         } else if (args.length >= 2) {
-            Subcommand subcommand = subcommands.get(args[0]);
+            Subcommand subcommand = subcommands.get(args[0].toLowerCase());
 
             if (subcommand != null) {
                 return subcommand.onTabComplete(sender, args);

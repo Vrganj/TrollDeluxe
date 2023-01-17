@@ -16,9 +16,6 @@ public class DemoSubcommand extends Subcommand {
     public void execute(CommandSender sender, String[] args) throws CommandException {
         List<Player> target = getPlayers(sender, args, 1);
 
-        // TODO: hack something up so this works on lower versions
-        // Player#showDemoScreen exists only since 1.18+
-
         try {
             Method method = Player.class.getMethod("showDemoScreen");
 
@@ -33,7 +30,7 @@ public class DemoSubcommand extends Subcommand {
 
             Util.send(sender, "Displayed demo screen to &e" + args[1] + "!");
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-            Util.send(sender, "&cThis feature only works on 1.18+");
+            throw new CommandException("&cThis feautre only works on 1.18+");
         }
     }
 

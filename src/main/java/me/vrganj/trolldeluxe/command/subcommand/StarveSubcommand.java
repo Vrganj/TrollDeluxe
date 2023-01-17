@@ -13,7 +13,11 @@ public class StarveSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         List<Player> target = getPlayers(sender, args, 1);
-        target.forEach(player -> player.setFoodLevel(0));
+
+        for (Player player : target) {
+            player.setFoodLevel(0);
+        }
+
         Util.send(sender, "Starved &e" + args[1] + "!");
     }
 

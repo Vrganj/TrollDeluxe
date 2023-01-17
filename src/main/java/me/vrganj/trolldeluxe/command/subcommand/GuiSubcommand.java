@@ -133,7 +133,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
 
     @Override
     public String getDescription() {
-        return "Open a simple troll gui";
+        return "Open a simple troll GUI";
     }
 
     @Override

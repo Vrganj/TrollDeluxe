@@ -13,7 +13,11 @@ public class BurnSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         List<Player> target = getPlayers(sender, args, 1);
-        target.forEach(player -> player.setFireTicks(10 * 20));
+
+        for (Player player : target) {
+            player.setFireTicks(10 * 20);
+        }
+
         Util.send(sender, "Set &e" + args[1] + " &fon fire!");
     }
 

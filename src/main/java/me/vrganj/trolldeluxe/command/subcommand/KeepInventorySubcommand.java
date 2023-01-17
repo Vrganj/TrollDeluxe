@@ -13,7 +13,11 @@ public class KeepInventorySubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         List<Player> target = getPlayers(sender, args, 1);
-        target.forEach(player -> Util.sendRaw(player, "&7&o[Server: Gamerule keepInventory is now set to: true]"));
+
+        for (Player player : target) {
+            Util.sendRaw(player, "&7&o[Server: Gamerule keepInventory is now set to: true]");
+        }
+
         Util.send(sender, "Sent fake keepInventory message to &e" + args[1] + "!");
     }
 

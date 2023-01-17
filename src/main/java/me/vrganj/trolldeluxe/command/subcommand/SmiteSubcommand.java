@@ -13,7 +13,11 @@ public class SmiteSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         List<Player> target = getPlayers(sender, args, 1);
-        target.forEach(player -> player.getWorld().strikeLightningEffect(player.getLocation()));
+
+        for (Player player : target) {
+            player.getWorld().strikeLightningEffect(player.getLocation());
+        }
+
         Util.send(sender, "&e" + args[1] + " &fhas been struck!");
     }
 

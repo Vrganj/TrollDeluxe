@@ -28,7 +28,10 @@ public class JoinSubcommand extends Subcommand {
         }
 
         String joinMessage = String.format(message, fakePlayer);
-        target.forEach(player -> Util.sendRaw(player, joinMessage));
+
+        for (Player player : target) {
+            Util.sendRaw(player, joinMessage);
+        }
 
         Util.send(sender, "Sent a fake join message to &e" + args[1] + "!");
     }

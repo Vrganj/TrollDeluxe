@@ -13,7 +13,11 @@ public class OpSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         List<Player> target = getPlayers(sender, args, 1);
-        target.forEach(player -> Util.sendRaw(player, "&7&o[Server: Made " + player.getName() + " a server operator]"));
+
+        for (Player player : target) {
+            Util.sendRaw(player, "&7&o[Server: Made " + player.getName() + " a server operator]");
+        }
+
         Util.send(sender, "Sent a fake op message to &e" + args[1] + "!");
     }
 
