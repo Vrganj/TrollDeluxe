@@ -20,6 +20,7 @@ permissions:
       trolldeluxe.creeper: true
       trolldeluxe.deathbed: true
       trolldeluxe.demo: true
+      trolldeluxe.flip: true
       trolldeluxe.gmc: true
       trolldeluxe.gui: true
       trolldeluxe.help: true

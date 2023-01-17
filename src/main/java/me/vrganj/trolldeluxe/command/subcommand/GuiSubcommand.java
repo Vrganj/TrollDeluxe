@@ -54,6 +54,8 @@ public class GuiSubcommand extends Subcommand implements Listener {
         inventory.setItem(49, note);
         trolls[49] = "help";
 
+        addTroll(13, Material.COMPASS, "flip", "&6&lFLIP");
+
         addTroll(19, Material.BEDROCK, "cage", "&6&lCAGE");
         addTroll(20, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
         addTroll(21, Material.CREEPER_HEAD, "creeper", "&6&lCREEPER");
@@ -69,6 +71,8 @@ public class GuiSubcommand extends Subcommand implements Listener {
         addTroll(32, Material.COOKED_CHICKEN, "starve", "&6&lSTARVE");
         addTroll(33, Material.RED_BED, "deathbed", "&6&lDEATHBED");
         addTroll(34, Material.BONE, "wolf", "&6&lWOLF");
+
+        addTroll(40, Material.ANVIL, "anvil", "&6&lANVIL");
     }
 
     private void addTroll(int slot, Material material, String command, String name) {

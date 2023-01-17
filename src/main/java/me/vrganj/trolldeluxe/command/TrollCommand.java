@@ -22,6 +22,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("creeper", new CreeperSubcommand());
         subcommands.put("deathbed", new DeathbedSubcommand());
         subcommands.put("demo", new DemoSubcommand());
+        subcommands.put("flip", new FlipSubcommand());
         subcommands.put("gmc", new GmcSubcommand());
         subcommands.put("gui", new GuiSubcommand(plugin));
         subcommands.put("help", new HelpSubcommand(subcommands));
