@@ -23,35 +23,27 @@ public abstract class Subcommand {
     protected List<Player> getPlayers(CommandSender sender, String[] args, int index) throws CommandException {
         List<Player> result = new ArrayList<>();
 
-        if (index < args.length) {
-            for (Entity entity : Bukkit.selectEntities(sender, args[index])) {
-                if (entity instanceof Player) {
-                    result.add((Player) entity);
-                }
+        for (Entity entity : Bukkit.selectEntities(sender, getString(args, index))) {
+            if (entity instanceof Player) {
+                result.add((Player) entity);
             }
-
-            if (result.isEmpty()) {
-                throw new CommandException("&cNo player was found!");
-            }
-
-            return result;
         }
 
-        throw new CommandException("&c/trolldeluxe " + getUsage());
+        if (result.isEmpty()) {
+            throw new CommandException("&cNo player was found!");
+        }
+
+        return result;
     }
 
     protected Player getPlayer(String[] args, int index) throws CommandException {
-        if (index < args.length) {
-            Player player = Bukkit.getPlayer(args[index]);
+        Player player = Bukkit.getPlayer(getString(args, index));
 
-            if (player == null) {
-                throw new CommandException("&cTarget player is not online");
-            }
-
-            return player;
+        if (player == null) {
+            throw new CommandException("&cTarget player is not online");
         }
 
-        throw new CommandException("&c/trolldeluxe " + getUsage());
+        return player;
     }
 
     protected String getString(String[] args, int index) throws CommandException {

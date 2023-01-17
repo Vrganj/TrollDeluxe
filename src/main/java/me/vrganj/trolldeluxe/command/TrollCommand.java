@@ -56,7 +56,7 @@ public class TrollCommand implements TabExecutor {
         try {
             subcommand.execute(sender, args);
         } catch (CommandException e) {
-            Util.send(sender, Util.translate(e.getMessage()));
+            Util.send(sender, e.getMessage());
         }
 
         return true;
