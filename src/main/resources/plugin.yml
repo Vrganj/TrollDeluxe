@@ -16,6 +16,7 @@ permissions:
     children:
       trolldeluxe.anvil: true
       trolldeluxe.burn: true
+      trolldeluxe.bury: true
       trolldeluxe.cage: true
       trolldeluxe.creeper: true
       trolldeluxe.deathbed: true

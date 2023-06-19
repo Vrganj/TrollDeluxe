@@ -22,20 +22,23 @@ import java.util.Map;
 import java.util.UUID;
 
 public class GuiSubcommand extends Subcommand implements Listener {
+    private final Map<String, Subcommand> subcommands;
+
     private final Map<UUID, String> targetMap = new HashMap<>();
-    private final String[] trolls = new String[6*9];
+    private final String[] trolls = new String[5*9];
     private final Inventory inventory;
 
-    public GuiSubcommand(TrollDeluxe plugin) {
+    public GuiSubcommand(TrollDeluxe plugin, Map<String, Subcommand> subcommands) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
 
-        inventory = Bukkit.createInventory(null, 6 * 9, plugin.toString());
+        this.subcommands = subcommands;
+        this.inventory = Bukkit.createInventory(null, 5 * 9, plugin.toString());
 
         ItemStack border = new ItemBuilder(Material.YELLOW_STAINED_GLASS_PANE).setName("&r").build();
 
         for (int i = 0; i < 9; ++i) {
             inventory.setItem(i, border);
-            inventory.setItem(i + 5 * 9, border);
+            inventory.setItem(inventory.getSize() - 1 - i, border);
         }
 
         ItemStack note = new ItemBuilder(Material.WRITABLE_BOOK)
@@ -46,15 +49,16 @@ public class GuiSubcommand extends Subcommand implements Listener {
                         "&r&fcan use, but which are not",
                         "&r&fin the troll GUI currently!",
                         "",
-                        "&r&e/td help",
-                        ""
+                        "&r&e/td help"
                 )
                 .build();
 
-        inventory.setItem(49, note);
-        trolls[49] = "help";
+        inventory.setItem(inventory.getSize() - 5, note);
+        trolls[inventory.getSize() - 5] = "help";
 
-        addTroll(13, Material.COMPASS, "flip", "&6&lFLIP");
+        addTroll(12, Material.COMPASS, "flip", "&6&lFLIP");
+        addTroll(13, Material.COARSE_DIRT, "bury", "&6&lBURY");
+        addTroll(14, Material.ANVIL, "anvil", "&6&lANVIL");
 
         addTroll(19, Material.BEDROCK, "cage", "&6&lCAGE");
         addTroll(20, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
@@ -72,11 +76,18 @@ public class GuiSubcommand extends Subcommand implements Listener {
         addTroll(33, Material.RED_BED, "deathbed", "&6&lDEATHBED");
         addTroll(34, Material.BONE, "wolf", "&6&lWOLF");
 
-        addTroll(40, Material.ANVIL, "anvil", "&6&lANVIL");
     }
 
     private void addTroll(int slot, Material material, String command, String name) {
-        ItemStack item = new ItemBuilder(material).setName(name).setLore("", "&r&7(Right-click for help)", "").build();
+        ItemStack item = new ItemBuilder(material)
+                .setName(name)
+                .setLore(
+                        "",
+                        "&r&f" + subcommands.get(command).getDescription(),
+                        "",
+                        "&r&e(Right-click for help)"
+                ).build();
+
         inventory.setItem(slot, item);
         trolls[slot] = command;
     }
@@ -105,7 +116,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
 
         int slot = event.getSlot();
 
-        if (event.getClickedInventory() == inventory && slot >= 0 && slot < 6*9) {
+        if (event.getClickedInventory() == inventory && slot >= 9 && slot < inventory.getSize() - 9) {
             String troll = trolls[slot];
 
             if (troll != null) {

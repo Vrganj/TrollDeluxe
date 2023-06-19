@@ -36,7 +36,7 @@ public class DemoSubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Make players think they're playing the demo version of Minecraft";
+        return "Show a demo screen to players";
     }
 
     @Override

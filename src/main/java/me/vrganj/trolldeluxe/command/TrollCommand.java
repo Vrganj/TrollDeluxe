@@ -18,14 +18,13 @@ public class TrollCommand implements TabExecutor {
     public TrollCommand(TrollDeluxe plugin) {
         subcommands.put("anvil", new AnvilSubcommand());
         subcommands.put("burn", new BurnSubcommand());
+        subcommands.put("bury", new BurySubcommand());
         subcommands.put("cage", new CageSubcommand());
         subcommands.put("creeper", new CreeperSubcommand());
         subcommands.put("deathbed", new DeathbedSubcommand());
         subcommands.put("demo", new DemoSubcommand());
         subcommands.put("flip", new FlipSubcommand());
         subcommands.put("gmc", new GmcSubcommand());
-        subcommands.put("gui", new GuiSubcommand(plugin));
-        subcommands.put("help", new HelpSubcommand(subcommands));
         subcommands.put("invsee", new InvseeSubcommand());
         subcommands.put("join", new JoinSubcommand(plugin));
         subcommands.put("keepinventory", new KeepInventorySubcommand());
@@ -38,6 +37,9 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("starve", new StarveSubcommand());
         subcommands.put("tnt", new TntSubcommand(plugin));
         subcommands.put("wolf", new WolfSubcommand(plugin));
+
+        subcommands.put("help", new HelpSubcommand(subcommands));
+        subcommands.put("gui", new GuiSubcommand(plugin, subcommands));
     }
 
     @Override
