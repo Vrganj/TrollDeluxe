@@ -20,6 +20,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("burn", new BurnSubcommand());
         subcommands.put("bury", new BurySubcommand());
         subcommands.put("cage", new CageSubcommand());
+        subcommands.put("carry", new CarrySubcommand());
         subcommands.put("creeper", new CreeperSubcommand());
         subcommands.put("deathbed", new DeathbedSubcommand());
         subcommands.put("demo", new DemoSubcommand());
@@ -32,6 +33,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("op", new OpSubcommand());
         subcommands.put("potato", new PotatoSubcommand());
         subcommands.put("reload", new ReloadSubcommand(plugin));
+        subcommands.put("ride", new RideSubcommand());
         subcommands.put("say", new SaySubcommand());
         subcommands.put("smite", new SmiteSubcommand());
         subcommands.put("starve", new StarveSubcommand());

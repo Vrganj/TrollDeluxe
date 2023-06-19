@@ -18,6 +18,7 @@ permissions:
       trolldeluxe.burn: true
       trolldeluxe.bury: true
       trolldeluxe.cage: true
+      trolldeluxe.carry: true
       trolldeluxe.creeper: true
       trolldeluxe.deathbed: true
       trolldeluxe.demo: true
@@ -32,6 +33,7 @@ permissions:
       trolldeluxe.op: true
       trolldeluxe.potato: true
       trolldeluxe.reload: true
+      trolldeluxe.ride: true
       trolldeluxe.say: true
       trolldeluxe.smite: true
       trolldeluxe.starve: true

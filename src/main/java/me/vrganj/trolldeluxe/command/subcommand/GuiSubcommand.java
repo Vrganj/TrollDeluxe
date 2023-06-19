@@ -56,9 +56,11 @@ public class GuiSubcommand extends Subcommand implements Listener {
         inventory.setItem(inventory.getSize() - 5, note);
         trolls[inventory.getSize() - 5] = "help";
 
-        addTroll(12, Material.COMPASS, "flip", "&6&lFLIP");
-        addTroll(13, Material.COARSE_DIRT, "bury", "&6&lBURY");
-        addTroll(14, Material.ANVIL, "anvil", "&6&lANVIL");
+        addTroll(11, Material.COMPASS, "flip", "&6&lFLIP");
+        addTroll(12, Material.COARSE_DIRT, "bury", "&6&lBURY");
+        addTroll(13, Material.ANVIL, "anvil", "&6&lANVIL");
+        addTroll(14, Material.LEATHER_HELMET, "ride", "&6&lRIDE");
+        addTroll(15, Material.OAK_BOAT, "carry", "&6&lCARRY");
 
         addTroll(19, Material.BEDROCK, "cage", "&6&lCAGE");
         addTroll(20, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
@@ -86,7 +88,9 @@ public class GuiSubcommand extends Subcommand implements Listener {
                         "&r&f" + subcommands.get(command).getDescription(),
                         "",
                         "&r&e(Right-click for help)"
-                ).build();
+                )
+                .hideAttributes()
+                .build();
 
         inventory.setItem(slot, item);
         trolls[slot] = command;

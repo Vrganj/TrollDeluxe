@@ -1,6 +1,7 @@
 package me.vrganj.trolldeluxe;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -27,6 +28,11 @@ public class ItemBuilder {
 
     public ItemBuilder setLore(String... lore) {
         meta.setLore(Stream.of(lore).map(Util::translate).collect(Collectors.toList()));
+        return this;
+    }
+
+    public ItemBuilder hideAttributes() {
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         return this;
     }
 
