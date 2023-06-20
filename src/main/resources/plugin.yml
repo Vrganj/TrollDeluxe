@@ -15,6 +15,7 @@ permissions:
     description: Allows all trolls
     children:
       trolldeluxe.anvil: true
+      trolldeluxe.blind: true
       trolldeluxe.burn: true
       trolldeluxe.bury: true
       trolldeluxe.cage: true
@@ -22,6 +23,7 @@ permissions:
       trolldeluxe.creeper: true
       trolldeluxe.deathbed: true
       trolldeluxe.demo: true
+      trolldeluxe.eco: true
       trolldeluxe.flip: true
       trolldeluxe.gmc: true
       trolldeluxe.gui: true
