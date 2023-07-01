@@ -3,7 +3,6 @@ package me.vrganj.trolldeluxe.command.subcommand;
 import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
-import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;

@@ -15,6 +15,7 @@ permissions:
     description: Allows all trolls
     children:
       trolldeluxe.anvil: true
+      trolldeluxe.bind: true
       trolldeluxe.blind: true
       trolldeluxe.burn: true
       trolldeluxe.bury: true
