@@ -4,6 +4,7 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 public class RideSubcommand extends Subcommand {
@@ -15,7 +16,7 @@ public class RideSubcommand extends Subcommand {
         }
 
         Player player = (Player) sender;
-        Player target = getPlayer(args, 1);
+        Entity target = getEntity(sender, args, 1);
 
         if (player != target) {
             target.addPassenger(player);
@@ -28,7 +29,7 @@ public class RideSubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Ride on top of a player";
+        return "Ride on top of an entity";
     }
 
     @Override
@@ -38,6 +39,6 @@ public class RideSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "ride <player>";
+        return "ride <entity>";
     }
 }

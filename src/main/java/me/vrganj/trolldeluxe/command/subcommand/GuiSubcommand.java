@@ -163,6 +163,6 @@ public class GuiSubcommand extends Subcommand implements Listener {
 
     @Override
     public String getUsage() {
-        return "gui <players>";
+        return "gui <entities>";
     }
 }

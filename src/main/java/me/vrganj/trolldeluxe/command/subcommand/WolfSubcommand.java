@@ -20,15 +20,15 @@ public class WolfSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        List<Player> targets = getPlayers(sender, args, 1);
 
         int wolves = plugin.getConfig().getInt("wolves", 3);
 
-        for (Player player : target) {
+        for (Player target : targets) {
             for (int i = 0; i < wolves; ++i) {
-                player.getWorld().spawn(player.getLocation(), Wolf.class, entity -> {
+                target.getWorld().spawn(target.getLocation(), Wolf.class, entity -> {
                     entity.setAngry(true);
-                    entity.setTarget(player);
+                    entity.setTarget(target);
                 });
             }
         }

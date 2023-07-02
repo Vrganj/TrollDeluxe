@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.Entity;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ public class BurySubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        List<Entity> targets = getEntities(sender, args, 1);
 
-        for (Player player : target) {
-            player.teleport(player.getLocation().subtract(0, 3, 0));
+        for (Entity target : targets) {
+            target.teleport(target.getLocation().subtract(0, target.getHeight() + 1, 0));
 
-            Block block = player.getLocation().getBlock();
+            Block block = target.getLocation().getBlock();
             block.setType(Material.AIR);
             block.getRelative(BlockFace.UP).setType(Material.AIR);
         }
@@ -30,7 +30,7 @@ public class BurySubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Bury players 3 blocks underground";
+        return "Bury entities underground";
     }
 
     @Override
@@ -40,6 +40,6 @@ public class BurySubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "bury <players>";
+        return "bury <entities>";
     }
 }

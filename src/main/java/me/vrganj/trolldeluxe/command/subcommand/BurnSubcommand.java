@@ -4,7 +4,7 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.Entity;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ public class BurnSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        List<Entity> targets = getEntities(sender, args, 1);
 
-        for (Player player : target) {
-            player.setFireTicks(10 * 20);
+        for (Entity target : targets) {
+            target.setFireTicks(10 * 20);
         }
 
         Util.send(sender, "Set &e" + args[1] + " &fon fire!");

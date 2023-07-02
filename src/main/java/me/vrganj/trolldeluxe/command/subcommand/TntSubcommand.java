@@ -4,7 +4,7 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.plugin.Plugin;
 
@@ -19,10 +19,10 @@ public class TntSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        List<Entity> targets = getEntities(sender, args, 1);
 
-        for (Player player : target) {
-            player.getWorld().spawn(player.getLocation(), TNTPrimed.class, entity -> {
+        for (Entity target : targets) {
+            target.getWorld().spawn(target.getLocation(), TNTPrimed.class, entity -> {
                 entity.setFuseTicks(plugin.getConfig().getInt("tnt fuse ticks", 40));
             });
         }
@@ -32,7 +32,7 @@ public class TntSubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Spawn TNT next to players";
+        return "Spawn TNT next to entities";
     }
 
     @Override
@@ -42,6 +42,6 @@ public class TntSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "tnt <players>";
+        return "tnt <entities>";
     }
 }

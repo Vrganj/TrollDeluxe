@@ -4,7 +4,7 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.Entity;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
@@ -19,10 +19,10 @@ public class LaunchSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        List<Entity> targets = getEntities(sender, args, 1);
 
-        for (Player player : target) {
-            player.setVelocity(new Vector(0.0, plugin.getConfig().getDouble("launch velocity", 100), 0.0));
+        for (Entity target : targets) {
+            target.setVelocity(new Vector(0.0, plugin.getConfig().getDouble("launch velocity", 100), 0.0));
         }
 
         Util.send(sender, "Launched &e" + args[1] + "!");
@@ -30,7 +30,7 @@ public class LaunchSubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Launch players far up into the sky";
+        return "Launch entities far up into the sky";
     }
 
     @Override
@@ -40,6 +40,6 @@ public class LaunchSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "launch <players>";
+        return "launch <entities>";
     }
 }

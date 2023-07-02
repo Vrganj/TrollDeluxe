@@ -5,7 +5,7 @@ import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.Entity;
 import org.bukkit.util.Vector;
 
 import java.util.List;
@@ -14,13 +14,13 @@ public class FlipSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        List<Entity> targets = getEntities(sender, args, 1);
 
-        for (Player player : target) {
-            Location location = player.getLocation();
+        for (Entity target : targets) {
+            Location location = target.getLocation();
             Vector direction = location.getDirection();
             location.setDirection(direction.multiply(-1));
-            player.teleport(location);
+            target.teleport(location);
         }
 
         Util.send(sender, "Flipped &e" + args[1] + "!");

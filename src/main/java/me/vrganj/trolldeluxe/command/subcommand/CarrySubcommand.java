@@ -4,6 +4,7 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 public class CarrySubcommand extends Subcommand {
@@ -15,7 +16,7 @@ public class CarrySubcommand extends Subcommand {
         }
 
         Player player = (Player) sender;
-        Player target = getPlayer(args, 1);
+        Entity target = getEntity(sender, args, 1);
 
         if (player != target) {
             player.addPassenger(target);
@@ -28,7 +29,7 @@ public class CarrySubcommand extends Subcommand {
 
     @Override
     public String getDescription() {
-        return "Carry a player";
+        return "Carry an entity";
     }
 
     @Override
@@ -38,6 +39,6 @@ public class CarrySubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "carry <player>";
+        return "carry <entity>";
     }
 }

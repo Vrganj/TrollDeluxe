@@ -20,6 +20,26 @@ public abstract class Subcommand {
         return null;
     }
 
+    protected List<Entity> getEntities(CommandSender sender, String[] args, int index) throws CommandException {
+        List<Entity> result = Bukkit.selectEntities(sender, getString(args, index));
+
+        if (result.isEmpty()) {
+            throw new CommandException("&cNo entity was found!");
+        }
+
+        return result;
+    }
+
+    protected Entity getEntity(CommandSender sender, String[] args, int index) throws CommandException {
+        List<Entity> entities = getEntities(sender, args, index);
+
+        if (entities.size() != 1) {
+            throw new CommandException("&cMore than one entity found");
+        }
+
+        return entities.get(0);
+    }
+
     protected List<Player> getPlayers(CommandSender sender, String[] args, int index) throws CommandException {
         List<Player> result = new ArrayList<>();
 
