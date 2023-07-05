@@ -8,19 +8,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.List;
+import java.util.Collection;
 
 public class BlindSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        Collection<Player> targets = getPlayers(sender, args, 1);
 
-        for (Player player : target) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60*20, 1));
+        for (Player target : targets) {
+            target.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60*20, 1));
         }
 
-        Util.send(sender, "Blinded &e" + args[1] + "!");
+        Util.send(sender, "Blinded &e" + targets.size() + " players!");
     }
 
     @Override

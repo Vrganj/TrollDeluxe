@@ -6,16 +6,16 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.Collection;
 
 public class KeepInventorySubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        Collection<Player> targets = consumePlayers(sender, args, 1);
 
-        for (Player player : target) {
-            Util.sendRaw(player, "&7&o[Server: Gamerule keepInventory is now set to: true]");
+        for (Player target : targets) {
+            Util.sendRaw(target, "&7&o[Server: Gamerule keepInventory is now set to: true]");
         }
 
         Util.send(sender, "Sent fake keepInventory message to &e" + args[1] + "!");

@@ -6,7 +6,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,8 +22,54 @@ public abstract class Subcommand {
         return null;
     }
 
+    protected Set<Entity> consumeEntities(CommandSender sender, String[] args, int from) throws CommandException {
+        Set<Entity> result = new HashSet<>();
+
+        try {
+            for (int i = from; i < args.length; ++i) {
+                result.addAll(Bukkit.selectEntities(sender, getString(args, i)));
+            }
+        } catch (IllegalArgumentException e) {
+            throw new CommandException(e.getMessage());
+        }
+
+        if (result.isEmpty()) {
+            throw new CommandException("&cNo entity was found!");
+        }
+
+        return result;
+    }
+
+    protected List<Player> consumePlayers(CommandSender sender, String[] args, int from) throws CommandException {
+        List<Player> result = new ArrayList<>();
+
+        try {
+            for (int i = from; i < args.length; ++i) {
+                for (Entity entity : Bukkit.selectEntities(sender, getString(args, i))) {
+                    if (entity instanceof Player) {
+                        result.add((Player) entity);
+                    }
+                }
+            }
+        } catch (IllegalArgumentException e) {
+            throw new CommandException(e.getMessage());
+        }
+
+        if (result.isEmpty()) {
+            throw new CommandException("&cNo player was found!");
+        }
+
+        return result;
+    }
+
     protected List<Entity> getEntities(CommandSender sender, String[] args, int index) throws CommandException {
-        List<Entity> result = Bukkit.selectEntities(sender, getString(args, index));
+        List<Entity> result;
+
+        try {
+            result = Bukkit.selectEntities(sender, getString(args, index));
+        } catch (IllegalArgumentException e) {
+            throw new CommandException(e.getMessage());
+        }
 
         if (result.isEmpty()) {
             throw new CommandException("&cNo entity was found!");
@@ -43,10 +91,14 @@ public abstract class Subcommand {
     protected List<Player> getPlayers(CommandSender sender, String[] args, int index) throws CommandException {
         List<Player> result = new ArrayList<>();
 
-        for (Entity entity : Bukkit.selectEntities(sender, getString(args, index))) {
-            if (entity instanceof Player) {
-                result.add((Player) entity);
+        try {
+            for (Entity entity : Bukkit.selectEntities(sender, getString(args, index))) {
+                if (entity instanceof Player) {
+                    result.add((Player) entity);
+                }
             }
+        } catch (IllegalArgumentException e) {
+            throw new CommandException(e.getMessage());
         }
 
         if (result.isEmpty()) {

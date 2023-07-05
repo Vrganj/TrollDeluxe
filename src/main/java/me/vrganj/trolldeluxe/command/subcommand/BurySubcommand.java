@@ -9,13 +9,13 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
-import java.util.List;
+import java.util.Collection;
 
 public class BurySubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Entity> targets = getEntities(sender, args, 1);
+        Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
             target.teleport(target.getLocation().subtract(0, target.getHeight() + 1, 0));
@@ -25,7 +25,7 @@ public class BurySubcommand extends Subcommand {
             block.getRelative(BlockFace.UP).setType(Material.AIR);
         }
 
-        Util.send(sender, "&e" + args[1] + " &fhas been buried!");
+        Util.send(sender, "&e" + targets.size() + " entities &fhave been buried!");
     }
 
     @Override

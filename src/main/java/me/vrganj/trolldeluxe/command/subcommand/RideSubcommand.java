@@ -18,6 +18,8 @@ public class RideSubcommand extends Subcommand {
         Player player = (Player) sender;
         Entity target = getEntity(sender, args, 1);
 
+        player.leaveVehicle();
+
         if (player != target) {
             target.addPassenger(player);
 

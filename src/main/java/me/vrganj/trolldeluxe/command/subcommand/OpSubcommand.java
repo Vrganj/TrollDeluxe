@@ -6,19 +6,19 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.Collection;
 
 public class OpSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        Collection<Player> targets = consumePlayers(sender, args, 1);
 
-        for (Player player : target) {
-            Util.sendRaw(player, "&7&o[Server: Made " + player.getName() + " a server operator]");
+        for (Player target : targets) {
+            Util.sendRaw(target, "&7&o[Server: Made " + target.getName() + " a server operator]");
         }
 
-        Util.send(sender, "Sent a fake op message to &e" + args[1] + "!");
+        Util.send(sender, "Sent a fake op message to &e" + targets.size() + " players!");
     }
 
     @Override

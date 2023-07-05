@@ -6,19 +6,19 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
-import java.util.List;
+import java.util.Collection;
 
 public class SmiteSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Entity> targets = getEntities(sender, args, 1);
+        Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
             target.getWorld().strikeLightningEffect(target.getLocation());
         }
 
-        Util.send(sender, "&e" + args[1] + " &fhas been struck!");
+        Util.send(sender, "&e" + targets.size() + " entities &fhave been struck!");
     }
 
     @Override

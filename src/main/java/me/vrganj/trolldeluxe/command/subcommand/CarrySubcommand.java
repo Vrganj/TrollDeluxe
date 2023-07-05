@@ -7,6 +7,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 public class CarrySubcommand extends Subcommand {
 
     @Override
@@ -16,25 +20,43 @@ public class CarrySubcommand extends Subcommand {
         }
 
         Player player = (Player) sender;
-        Entity target = getEntity(sender, args, 1);
+        Collection<Entity> targets = consumeEntities(sender, args, 1);
 
-        if (player != target) {
-            if (!player.getPassengers().contains(target)) {
-                Util.send(player, "&fCarrying &e" + target.getName() + "!");
-                player.addPassenger(target);
-            } else {
-                Util.send(player, "&fNo longer carrying &e" + target.getName() + "!");
-                player.removePassenger(target);
+        Set<Entity> stack = new HashSet<>();
+
+        Entity top = player;
+        stack.add(top);
+
+        while (top != null && !top.getPassengers().isEmpty()) {
+            top = top.getPassengers().get(0);
+
+            if (top != null) {
+                stack.add(top);
+            }
+        }
+
+        int count = 0;
+
+        for (Entity target : targets) {
+            if (stack.contains(target)) {
+                continue;
             }
 
-        } else {
-            throw new CommandException("&cYou can't carry yourself");
+            ++count;
+
+            target.leaveVehicle();
+            target.eject();
+
+            top.addPassenger(target);
+            top = target;
         }
+
+        Util.send(player, "&fStarted carrying &e" + count + " entities!");
     }
 
     @Override
     public String getDescription() {
-        return "Carry an entity";
+        return "Carry entities";
     }
 
     @Override
@@ -44,6 +66,6 @@ public class CarrySubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "carry <entity>";
+        return "carry <entities>";
     }
 }

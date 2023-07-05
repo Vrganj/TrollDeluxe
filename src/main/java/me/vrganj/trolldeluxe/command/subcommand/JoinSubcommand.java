@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import java.util.List;
+import java.util.Collection;
 
 public class JoinSubcommand extends Subcommand {
     private final Plugin plugin;
@@ -18,8 +18,8 @@ public class JoinSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
-        String fakePlayer = getString(args, 2);
+        String fakePlayer = getString(args, 1);
+        Collection<Player> targets = consumePlayers(sender, args, 2);
 
         String message = plugin.getConfig().getString("join message");
 
@@ -29,11 +29,11 @@ public class JoinSubcommand extends Subcommand {
 
         String joinMessage = String.format(message, fakePlayer);
 
-        for (Player player : target) {
-            Util.sendRaw(player, joinMessage);
+        for (Player target : targets) {
+            Util.sendRaw(target, joinMessage);
         }
 
-        Util.send(sender, "Sent a fake join message to &e" + args[1] + "!");
+        Util.send(sender, "Sent a fake join message to &e" + targets.size() + " entities!");
     }
 
     @Override
@@ -48,6 +48,6 @@ public class JoinSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "join <players> <fake player>";
+        return "join <fake player> <players>";
     }
 }

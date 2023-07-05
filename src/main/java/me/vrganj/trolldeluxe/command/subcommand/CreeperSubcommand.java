@@ -7,19 +7,19 @@ import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.Collection;
 
 public class CreeperSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        Collection<Player> targets = consumePlayers(sender, args, 1);
 
-        for (Player player : target) {
-            player.playSound(player.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1.0f, 1.0f);
+        for (Player target : targets) {
+            target.playSound(target.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1.0f, 1.0f);
         }
 
-        Util.send(sender, "&e" + args[1] + " &fhas been scared!");
+        Util.send(sender, "&e" + targets.size() + " players &fhave been scared!");
     }
 
     @Override

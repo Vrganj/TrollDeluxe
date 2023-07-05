@@ -93,7 +93,7 @@ public class BindSubcommand extends Subcommand implements Listener {
     }
 
     @EventHandler
-    public void onPlayerClic(PlayerInteractEntityEvent event) {
+    public void onPlayerClick(PlayerInteractEntityEvent event) {
         if (event.getRightClicked() instanceof Player) {
             Player player = event.getPlayer();
             ItemStack tool;

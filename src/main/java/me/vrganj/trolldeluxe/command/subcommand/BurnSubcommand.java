@@ -6,24 +6,24 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
-import java.util.List;
+import java.util.Collection;
 
 public class BurnSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Entity> targets = getEntities(sender, args, 1);
+        Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
             target.setFireTicks(10 * 20);
         }
 
-        Util.send(sender, "Set &e" + args[1] + " &fon fire!");
+        Util.send(sender, "Set &e" + targets.size() + " entities &fon fire!");
     }
 
     @Override
     public String getDescription() {
-        return "Set players on fire";
+        return "Set entities on fire";
     }
 
     @Override
@@ -33,6 +33,6 @@ public class BurnSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "burn <players>";
+        return "burn <entities>";
     }
 }

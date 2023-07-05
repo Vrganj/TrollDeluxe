@@ -8,24 +8,24 @@ import org.bukkit.entity.Player;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.List;
+import java.util.Collection;
 
 public class DemoSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        Collection<Player> targets = consumePlayers(sender, args, 1);
 
         try {
             Method method = Player.class.getMethod("showDemoScreen");
 
-            for (Player player : target) {
+            for (Player target : targets) {
                 // InventoryCloseEvent doesn't get called
                 // when the demo screen is showed to a player,
                 // so it must be done manually.
-                player.closeInventory();
+                target.closeInventory();
 
-                method.invoke(player);
+                method.invoke(target);
             }
 
             Util.send(sender, "Displayed demo screen to &e" + args[1] + "!");

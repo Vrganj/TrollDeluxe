@@ -8,7 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.plugin.Plugin;
 
-import java.util.List;
+import java.util.Collection;
 
 public class TntSubcommand extends Subcommand {
     private final Plugin plugin;
@@ -19,7 +19,7 @@ public class TntSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Entity> targets = getEntities(sender, args, 1);
+        Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
             target.getWorld().spawn(target.getLocation(), TNTPrimed.class, entity -> {
@@ -27,7 +27,7 @@ public class TntSubcommand extends Subcommand {
             });
         }
 
-        Util.send(sender, "Spawned TNT next to &e" + args[1] + "!");
+        Util.send(sender, "Spawned TNT next to &e" + targets.size() + " entities!");
     }
 
     @Override

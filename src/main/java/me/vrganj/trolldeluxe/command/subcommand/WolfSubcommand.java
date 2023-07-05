@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 import org.bukkit.plugin.Plugin;
 
-import java.util.List;
+import java.util.Collection;
 
 public class WolfSubcommand extends Subcommand {
     private final Plugin plugin;
@@ -20,7 +20,7 @@ public class WolfSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> targets = getPlayers(sender, args, 1);
+        Collection<Player> targets = consumePlayers(sender, args, 1);
 
         int wolves = plugin.getConfig().getInt("wolves", 3);
 
@@ -33,7 +33,7 @@ public class WolfSubcommand extends Subcommand {
             }
         }
 
-        Util.send(sender, "Spawned wolves around &e" + args[1] + "!");
+        Util.send(sender, "Spawned wolves around &e" + targets.size() + " players!");
     }
 
     @Override

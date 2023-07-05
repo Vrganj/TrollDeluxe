@@ -104,7 +104,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
         }
 
         Player player = (Player) sender;
-        String target = getString(args, 1);
+        String target = consume(args, 1);
 
         targetMap.put(player.getUniqueId(), target);
         player.openInventory(inventory);

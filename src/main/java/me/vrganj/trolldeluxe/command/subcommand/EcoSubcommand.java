@@ -6,19 +6,19 @@ import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.Collection;
 
 public class EcoSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Player> target = getPlayers(sender, args, 1);
+        Collection<Player> targets = consumePlayers(sender, args, 1);
 
-        for (Player player : target) {
-            Util.sendRaw(player, "&a$1000000 has been added to your account.");
+        for (Player target : targets) {
+            Util.sendRaw(target, "&a$1000000 has been added to your account.");
         }
 
-        Util.send(sender, "Showed a fake eco message to &e" + args[1] + "!");
+        Util.send(sender, "Showed a fake eco message to &e" + targets.size() + " players!");
     }
 
     @Override

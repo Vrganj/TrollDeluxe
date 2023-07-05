@@ -8,7 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
-import java.util.List;
+import java.util.Collection;
 
 public class LaunchSubcommand extends Subcommand {
     private final Plugin plugin;
@@ -19,13 +19,13 @@ public class LaunchSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Entity> targets = getEntities(sender, args, 1);
+        Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
             target.setVelocity(new Vector(0.0, plugin.getConfig().getDouble("launch velocity", 100), 0.0));
         }
 
-        Util.send(sender, "Launched &e" + args[1] + "!");
+        Util.send(sender, "Launched &e" + targets.size() + " entities!");
     }
 
     @Override

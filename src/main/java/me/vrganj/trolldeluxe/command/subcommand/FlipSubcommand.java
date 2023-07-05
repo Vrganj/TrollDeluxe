@@ -8,13 +8,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.util.Vector;
 
-import java.util.List;
+import java.util.Collection;
 
 public class FlipSubcommand extends Subcommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
-        List<Entity> targets = getEntities(sender, args, 1);
+        Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
             Location location = target.getLocation();
@@ -23,12 +23,12 @@ public class FlipSubcommand extends Subcommand {
             target.teleport(location);
         }
 
-        Util.send(sender, "Flipped &e" + args[1] + "!");
+        Util.send(sender, "Flipped &e" + targets.size() + " entities!");
     }
 
     @Override
     public String getDescription() {
-        return "Flip a player to the opposite direction!";
+        return "Flip entities to the opposite direction!";
     }
 
     @Override
@@ -38,6 +38,6 @@ public class FlipSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "flip <players>";
+        return "flip <entities>";
     }
 }
