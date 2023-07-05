@@ -19,9 +19,14 @@ public class CarrySubcommand extends Subcommand {
         Entity target = getEntity(sender, args, 1);
 
         if (player != target) {
-            player.addPassenger(target);
+            if (!player.getPassengers().contains(target)) {
+                Util.send(player, "&fCarrying &e" + target.getName() + "!");
+                player.addPassenger(target);
+            } else {
+                Util.send(player, "&fNo longer carrying &e" + target.getName() + "!");
+                player.removePassenger(target);
+            }
 
-            Util.send(player, "&fCarrying &e" + target.getName() + "!");
         } else {
             throw new CommandException("&cYou can't carry yourself");
         }
