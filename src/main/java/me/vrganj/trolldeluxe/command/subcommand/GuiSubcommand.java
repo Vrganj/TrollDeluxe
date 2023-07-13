@@ -64,6 +64,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
         addTroll(15, Material.OAK_BOAT, "carry", "&6&lCARRY");
         addTroll(16, Material.ENDER_EYE, "blind", "&6&lBLIND");
 
+        addTroll(18, Material.ICE, "freeze", "&6&lFREEZE");
         addTroll(19, Material.BEDROCK, "cage", "&6&lCAGE");
         addTroll(20, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
         addTroll(21, Material.CREEPER_HEAD, "creeper", "&6&lCREEPER");
@@ -71,6 +72,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
         addTroll(23, Material.GOLD_INGOT, "gmc", "&6&lFAKE GMC");
         addTroll(24, Material.DIAMOND, "op", "&6&lFAKE OP");
         addTroll(25, Material.BLAZE_ROD, "smite", "&6&lSMITE");
+        addTroll(26, Material.ENDER_PEARL, "shuffle", "&6&lSHUFFLE");
 
         addTroll(28, Material.TNT, "tnt", "&6&lTNT");
         addTroll(29, Material.POTATO, "potato", "&6&lPOTATO");

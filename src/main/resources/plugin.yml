@@ -38,6 +38,7 @@ permissions:
       trolldeluxe.reload: true
       trolldeluxe.ride: true
       trolldeluxe.say: true
+      trolldeluxe.shuffle: true
       trolldeluxe.smite: true
       trolldeluxe.starve: true
       trolldeluxe.tnt: true

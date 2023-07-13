@@ -53,7 +53,7 @@ public class HelpSubcommand extends Subcommand {
 
     @Override
     public String getUsage() {
-        return "help [subcommand]";
+        return "help <subcommand>";
     }
 
     @Override

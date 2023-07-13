@@ -27,6 +27,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("demo", new DemoSubcommand());
         subcommands.put("eco", new EcoSubcommand());
         subcommands.put("flip", new FlipSubcommand());
+        subcommands.put("freeze", new FreezeSubcommand());
         subcommands.put("gmc", new GmcSubcommand());
         subcommands.put("invsee", new InvseeSubcommand());
         subcommands.put("join", new JoinSubcommand(plugin));
@@ -37,6 +38,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("reload", new ReloadSubcommand(plugin));
         subcommands.put("ride", new RideSubcommand());
         subcommands.put("say", new SaySubcommand());
+        subcommands.put("shuffle", new ShuffleSubcommand());
         subcommands.put("smite", new SmiteSubcommand());
         subcommands.put("starve", new StarveSubcommand());
         subcommands.put("tnt", new TntSubcommand(plugin));
