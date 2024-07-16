@@ -42,6 +42,7 @@ public class BindSubcommand extends Subcommand implements Listener {
             "smite",
             "starve",
             "tnt",
+            "unpotato",
             "wolf"
     ));
 
@@ -73,7 +74,7 @@ public class BindSubcommand extends Subcommand implements Listener {
 
             binding.remove(material);
 
-            if (binding.size() == 0) {
+            if (binding.isEmpty()) {
                 bindings.remove(player.getUniqueId());
             }
 

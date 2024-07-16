@@ -1,7 +1,6 @@
 package me.vrganj.trolldeluxe.command.subcommand;
 
 import me.vrganj.trolldeluxe.Util;
-import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 
@@ -17,7 +16,7 @@ public class HelpSubcommand extends Subcommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) throws CommandException {
+    public void execute(CommandSender sender, String[] args) {
         if (args.length < 2) {
             Util.send(sender, "&f/trolldeluxe subcommands:");
 

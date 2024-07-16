@@ -22,9 +22,9 @@ public class TntSubcommand extends Subcommand {
         Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
-            target.getWorld().spawn(target.getLocation(), TNTPrimed.class, entity -> {
-                entity.setFuseTicks(plugin.getConfig().getInt("tnt fuse ticks", 40));
-            });
+            target.getWorld().spawn(target.getLocation(), TNTPrimed.class, entity ->
+                entity.setFuseTicks(plugin.getConfig().getInt("tnt fuse ticks", 40))
+            );
         }
 
         Util.send(sender, "Spawned TNT next to &e" + targets.size() + " entities!");
