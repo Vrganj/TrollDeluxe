@@ -15,10 +15,10 @@ public class GmcSubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            Util.sendRaw(target, "&7&o[Server: Set " + target.getName() + "'s game mode to Creative Mode]");
+            Util.sendRawLocalized(target, "troll.gmc.message", target.getName());
         }
 
-        Util.send(sender, "Sent a fake gmc message to &e" + targets.size() + " players!");
+        Util.sendLocalized(sender, "troll.gmc.sent", targets.size());
     }
 
     @Override

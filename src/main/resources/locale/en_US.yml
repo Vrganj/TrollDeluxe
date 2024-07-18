@@ -1,0 +1,131 @@
+prefix: "&8[&6TrollDeluxe&8] &f"
+
+update:
+  available: "Update available: &e{0} &8» &e{1}"
+
+command:
+  players-only: "&cOnly players can run this command!"
+  invalid-subcommand: "&cUnknown subcommand! Use /td help"
+  invalid-version: "&cThis command only works on {0}!"
+
+troll:
+  anvil:
+    dropped: "&fDropped an anvil on &e{0} entities!"
+
+  bind:
+    invalid-item: "&cYou can't bind air!"
+    no-binding: "&cUse /trolldeluxe bind <troll> while holding an item"
+    binding-removed: "&aRemoved binding from your item!"
+    binding-created: "&aBound {0} to {1}"
+
+  blind:
+    blinded: "Blinded &e{0} players!"
+
+  burn:
+    burned: "Set &e{0} entities &fon fire!"
+
+  bury:
+    buried: "&e{0} entities &fhave been buried!"
+
+  cage:
+    caged: "&e{0} entities &fhave been caged!"
+
+  carry:
+    carrying: "Started carrying &e{0} entities!"
+
+  creeper:
+    creeped: "&e{0} players &fhave been creeped out!"
+
+  deathbed:
+    damaged: "&e{0} players &fhave been damaged to half a heart!"
+
+  demo:
+    displayed: "Displayed demo screen to &e{0}!"
+
+  eco:
+    message: "&a$1000000 has been added to your account."
+    showed: "Showed a fake eco message to &e{0} players!"
+
+  flip:
+    flipped: "Flipped &e{0} entities!"
+
+  freeze:
+    froze: "Froze &e{0} entities!"
+
+  gmc:
+    message: "&7&o[Server: Set {0}''s game mode to Creative Mode]"
+    sent: "Sent a fake gmc message to &e{0} players!"
+
+  gui:
+    note:
+      name: "&eAnd that's not all!"
+      lore:
+          - ""
+          - "&r&fThere are more trolls you"
+          - "&r&fcan use, but which are not"
+          - "&r&fin the troll GUI currently!"
+          - ""
+          - "&r&e/td help"
+    troll:
+      lore:
+        - ""
+        - "&r&f{0}"
+        - ""
+        - "&r&e(Right-click for help)"
+
+  help:
+    subcommands: "&f/trolldeluxe subcommands:"
+    subcommand: "&8» &e{0} &f{1}"
+    help: "&e/trolldeluxe {0} &fhelp:"
+    description: "&8» &eDescription: &f{0}"
+    usage: "&8» &eUsage: &f/td {0}"
+    permission: "&8» &ePermission: &f{0}"
+
+  invsee:
+    opened: "&fOpened inventory of &e{0}!"
+
+  join:
+    message: "&e{0} &ejoined the game"
+    sent: "Sent a fake join message to &e{0} entities!"
+
+  keepinventory:
+    message: "&7&o[Server: Gamerule keepInventory is now set to: true]"
+    sent: "Sent fake keepInventory message to &e{0}!"
+
+  launch:
+    launched: "Launched &e{0} entities!"
+
+  op:
+    message: "&7&o[Server: Made {0} a server operator]"
+    sent: "Sent a fake op message to &e{0} players!"
+
+  potato:
+    potated: "&e{0} &fhave been potatoed!"
+
+  reload:
+    reloaded: "Reloaded the configuration!"
+
+  ride:
+    riding: "&fRiding &e{0}!"
+    self: "&cYou can't ride yourself"
+
+  say:
+    said: "Made &e{0} players &fsay &e{1}&e!"
+
+  shuffle:
+    shuffled: "Shuffled &e{0} entities!"
+
+  smite:
+    struck: "&e{0} entities &fhave been struck!"
+
+  starve:
+    starved: "Starved &e{0} players!"
+
+  tnt:
+    spawned: "Spawned TNT next to &e{0} entities!"
+
+  unpotato:
+    unpotatoed: "&e{0} &fhave been unpotatoed!"
+
+  wolf:
+    spawned: "Spawned wolves around &e{0} players!"

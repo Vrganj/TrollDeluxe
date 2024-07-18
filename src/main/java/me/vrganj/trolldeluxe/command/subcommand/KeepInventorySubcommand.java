@@ -15,10 +15,10 @@ public class KeepInventorySubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            Util.sendRaw(target, "&7&o[Server: Gamerule keepInventory is now set to: true]");
+            Util.sendRawLocalized(target, "troll.keepinventory.message");
         }
 
-        Util.send(sender, "Sent fake keepInventory message to &e" + args[1] + "!");
+        Util.sendLocalized(sender, "troll.keepinventory.sent", args[1]);
     }
 
     @Override

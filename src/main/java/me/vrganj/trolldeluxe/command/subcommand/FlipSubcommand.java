@@ -23,7 +23,7 @@ public class FlipSubcommand extends Subcommand {
             target.teleport(location);
         }
 
-        Util.send(sender, "Flipped &e" + targets.size() + " entities!");
+        Util.sendLocalized(sender, "troll.flip.flipped", targets.size());
     }
 
     @Override

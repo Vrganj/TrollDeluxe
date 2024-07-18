@@ -33,7 +33,7 @@ public class UnpotatoSubcommand extends Subcommand {
             }
         }
 
-        Util.send(sender, "&e" + args[1] + " &fhave been unpotatoed!");
+        Util.sendLocalized(sender, "troll.unpotato.unpotatoed", args[1]);
     }
 
     @Override

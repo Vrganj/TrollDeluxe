@@ -21,7 +21,7 @@ public class FreezeSubcommand extends Subcommand {
             target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 60*20, 200));
         }
 
-        Util.send(sender, "Froze &e" + targets.size() + " players!");
+        Util.sendLocalized(sender, "troll.freeze.froze", targets.size());
     }
 
     @Override

@@ -18,7 +18,7 @@ public class StarveSubcommand extends Subcommand {
             target.setFoodLevel(0);
         }
 
-        Util.send(sender, "Starved &e" + targets.size() + " players!");
+        Util.sendLocalized(sender, "troll.starve.starved", targets.size());
     }
 
     @Override

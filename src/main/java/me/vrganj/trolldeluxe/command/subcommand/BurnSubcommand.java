@@ -18,7 +18,7 @@ public class BurnSubcommand extends Subcommand {
             target.setFireTicks(10 * 20);
         }
 
-        Util.send(sender, "Set &e" + targets.size() + " entities &fon fire!");
+        Util.sendLocalized(sender, "troll.burn.burned", targets.size());
     }
 
     @Override

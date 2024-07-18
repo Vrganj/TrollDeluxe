@@ -1,6 +1,7 @@
 package me.vrganj.trolldeluxe.command.subcommand;
 
 import me.vrganj.trolldeluxe.Util;
+import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.command.CommandSender;
 
@@ -16,12 +17,12 @@ public class HelpSubcommand extends Subcommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(CommandSender sender, String[] args) throws CommandException {
         if (args.length < 2) {
-            Util.send(sender, "&f/trolldeluxe subcommands:");
+            Util.sendLocalized(sender, "troll.help.subcommands");
 
             for (Subcommand subcommand : subcommands.values()) {
-                Util.sendRaw(sender, "&8\u00bb &e" + subcommand.getUsage() + " &f" + subcommand.getDescription());
+                Util.sendRawLocalized(sender, "troll.help.subcommand", subcommand.getUsage(), subcommand.getDescription());
             }
 
             return;
@@ -30,14 +31,13 @@ public class HelpSubcommand extends Subcommand {
         Subcommand subcommand = subcommands.get(args[1].toLowerCase());
 
         if (subcommand == null) {
-            Util.send(sender, "&cUnknown subcommand. Run /trolldeluxe help");
-            return;
+            throw new CommandException(Util.getLocalized("command.invalid-subcommand"));
         }
 
-        Util.send(sender, "&e/trolldeluxe " + args[1].toLowerCase() + " &fhelp:");
-        Util.sendRaw(sender, "&8\u00bb &eDescription: &f" + subcommand.getDescription());
-        Util.sendRaw(sender, "&8\u00bb &eUsage: &f/td " + subcommand.getUsage());
-        Util.sendRaw(sender, "&8\u00bb &ePermission: &f" + subcommand.getPermission());
+        Util.sendLocalized(sender, "troll.help.help", args[1].toLowerCase());
+        Util.sendRawLocalized(sender, "troll.help.description", subcommand.getDescription());
+        Util.sendRawLocalized(sender, "troll.help.usage", subcommand.getUsage());
+        Util.sendRawLocalized(sender, "troll.help.permission", subcommand.getPermission());
     }
 
     @Override

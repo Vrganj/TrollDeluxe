@@ -27,7 +27,7 @@ public class TntSubcommand extends Subcommand {
             );
         }
 
-        Util.send(sender, "Spawned TNT next to &e" + targets.size() + " entities!");
+        Util.sendLocalized(sender, "troll.tnt.spawned", targets.size());
     }
 
     @Override

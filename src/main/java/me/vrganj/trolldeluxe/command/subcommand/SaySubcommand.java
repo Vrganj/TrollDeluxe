@@ -18,7 +18,7 @@ public class SaySubcommand extends Subcommand {
             target.chat(message);
         }
 
-        Util.send(sender, "Made &e" + targets.size() + " players &fsay &e" + message + "&e!");
+        Util.sendLocalized(sender, "troll.say.said", targets.size(), message);
     }
 
     @Override

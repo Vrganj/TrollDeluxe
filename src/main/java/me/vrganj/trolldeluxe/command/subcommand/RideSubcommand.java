@@ -12,7 +12,7 @@ public class RideSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         if (!(sender instanceof Player)) {
-            throw new CommandException("&cOnly players can run this command!");
+            throw new CommandException(Util.getLocalized("command.players-only"));
         }
 
         Player player = (Player) sender;
@@ -23,9 +23,9 @@ public class RideSubcommand extends Subcommand {
         if (player != target) {
             target.addPassenger(player);
 
-            Util.send(player, "&fRiding &e" + target.getName() + "!");
+            Util.sendLocalized(player, "troll.ride.riding", target.getName());
         } else {
-            throw new CommandException("&cYou can't ride yourself");
+            throw new CommandException(Util.getLocalized("troll.ride.self"));
         }
     }
 

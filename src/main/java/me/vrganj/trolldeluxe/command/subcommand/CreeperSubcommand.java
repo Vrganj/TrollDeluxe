@@ -19,7 +19,7 @@ public class CreeperSubcommand extends Subcommand {
             target.playSound(target.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1.0f, 1.0f);
         }
 
-        Util.send(sender, "&e" + targets.size() + " players &fhave been scared!");
+        Util.sendLocalized(sender, "troll.creeper.creeped", targets.size());
     }
 
     @Override

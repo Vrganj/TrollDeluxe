@@ -31,7 +31,7 @@ public class ShuffleSubcommand extends Subcommand {
             list.get(i).teleport(shuffled.get(i));
         }
 
-        Util.send(sender, "Shuffled &e" + targets.size() + " entities!");
+        Util.sendLocalized(sender, "troll.shuffle.shuffled", targets.size());
     }
 
     @Override

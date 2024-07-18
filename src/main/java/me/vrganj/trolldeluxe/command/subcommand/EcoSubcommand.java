@@ -15,10 +15,10 @@ public class EcoSubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            Util.sendRaw(target, "&a$1000000 has been added to your account.");
+            Util.sendRawLocalized(target, "troll.eco.message");
         }
 
-        Util.send(sender, "Showed a fake eco message to &e" + targets.size() + " players!");
+        Util.sendLocalized(sender, "troll.eco.showed", targets.size());
     }
 
     @Override

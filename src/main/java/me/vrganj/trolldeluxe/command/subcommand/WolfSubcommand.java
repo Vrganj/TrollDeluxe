@@ -33,7 +33,7 @@ public class WolfSubcommand extends Subcommand {
             }
         }
 
-        Util.send(sender, "Spawned wolves around &e" + targets.size() + " players!");
+        Util.sendLocalized(sender, "troll.wolf.spawned", targets.size());
     }
 
     @Override

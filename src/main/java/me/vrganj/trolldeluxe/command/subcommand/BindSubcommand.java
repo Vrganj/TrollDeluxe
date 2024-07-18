@@ -55,21 +55,21 @@ public class BindSubcommand extends Subcommand implements Listener {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         if (!(sender instanceof Player)) {
-            throw new CommandException("&cOnly players can run this command!");
+            throw new CommandException(Util.getLocalized("command.players-only"));
         }
 
         Player player = (Player) sender;
         Material material = player.getInventory().getItemInMainHand().getType();
 
         if (material == Material.AIR) {
-            throw new CommandException("&cYou can't bind air");
+            throw new CommandException(Util.getLocalized("troll.bind.invalid-item"));
         }
 
         if (args.length == 1) {
             Map<Material, String> binding = bindings.get(player.getUniqueId());
 
             if (binding == null || binding.get(material) == null) {
-                throw new CommandException("&cUse /trolldeluxe bind <troll> while holding an item");
+                throw new CommandException(Util.getLocalized("troll.bind.no-binding"));
             }
 
             binding.remove(material);
@@ -78,7 +78,7 @@ public class BindSubcommand extends Subcommand implements Listener {
                 bindings.remove(player.getUniqueId());
             }
 
-            Util.send(player, "&aRemoved binding from your item");
+            Util.sendLocalized(player, "troll.bind.binding-removed");
 
             return;
         }
@@ -86,13 +86,13 @@ public class BindSubcommand extends Subcommand implements Listener {
         String subcommand = getString(args, 1).toLowerCase();
 
         if (!SUBCOMMANDS.contains(subcommand)) {
-            throw new CommandException("&cInvalid troll name");
+            throw new CommandException(Util.getLocalized("command.invalid-subcommand"));
         }
 
         Map<Material, String> binding = bindings.computeIfAbsent(player.getUniqueId(), uuid -> new HashMap<>());
         binding.put(material, subcommand);
 
-        Util.send(player, "&aBound " + material + " to " + subcommand);
+        Util.sendLocalized(player, "troll.bind.binding-created", material, subcommand);
     }
 
     @EventHandler

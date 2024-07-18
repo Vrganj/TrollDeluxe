@@ -16,7 +16,7 @@ public class CarrySubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         if (!(sender instanceof Player)) {
-            throw new CommandException("&cOnly players can run this command!");
+            throw new CommandException(Util.getLocalized("command.players-only"));
         }
 
         Player player = (Player) sender;
@@ -51,7 +51,7 @@ public class CarrySubcommand extends Subcommand {
             top = target;
         }
 
-        Util.send(player, "&fStarted carrying &e" + count + " entities!");
+        Util.sendLocalized(player, "troll.carry.carrying", count);
     }
 
     @Override

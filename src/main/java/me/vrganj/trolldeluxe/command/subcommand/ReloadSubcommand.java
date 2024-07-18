@@ -15,7 +15,7 @@ public class ReloadSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) {
         plugin.reloadConfig();
-        Util.send(sender, "Reloaded the configuration!");
+        Util.sendLocalized(sender, "troll.reload.reloaded");
     }
 
     @Override

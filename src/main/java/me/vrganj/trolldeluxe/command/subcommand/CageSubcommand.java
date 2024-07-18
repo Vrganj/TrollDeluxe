@@ -29,7 +29,7 @@ public class CageSubcommand extends Subcommand {
             }
         }
 
-        Util.send(sender, "&e" + targets.size() + " entities &fhave been caged!");
+        Util.sendLocalized(sender, "troll.cage.caged", targets.size());
     }
 
     @Override

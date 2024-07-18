@@ -25,7 +25,7 @@ public class BurySubcommand extends Subcommand {
             block.getRelative(BlockFace.UP).setType(Material.AIR);
         }
 
-        Util.send(sender, "&e" + targets.size() + " entities &fhave been buried!");
+        Util.sendLocalized(sender, "troll.bury.buried", targets.size());
     }
 
     @Override

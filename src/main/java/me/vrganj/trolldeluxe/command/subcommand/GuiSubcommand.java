@@ -2,6 +2,7 @@ package me.vrganj.trolldeluxe.command.subcommand;
 
 import me.vrganj.trolldeluxe.ItemBuilder;
 import me.vrganj.trolldeluxe.TrollDeluxe;
+import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.Bukkit;
@@ -42,20 +43,14 @@ public class GuiSubcommand extends Subcommand implements Listener {
         }
 
         ItemStack note = new ItemBuilder(Material.WRITABLE_BOOK)
-                .setName("&eAnd that's not all!")
-                .setLore(
-                        "",
-                        "&r&fThere are more trolls you",
-                        "&r&fcan use, but which are not",
-                        "&r&fin the troll GUI currently!",
-                        "",
-                        "&r&e/td help"
-                )
+                .setName(Util.getLocalized("troll.gui.note.name"))
+                .setLore(Util.getLocalizedList("troll.gui.note.lore"))
                 .build();
 
         inventory.setItem(inventory.getSize() - 5, note);
         trolls[inventory.getSize() - 5] = "help";
 
+        // TODO: localize troll names
         addTroll(10, Material.GOLD_INGOT, "eco", "&6&lFAKE ECO");
         addTroll(11, Material.COMPASS, "flip", "&6&lFLIP");
         addTroll(12, Material.COARSE_DIRT, "bury", "&6&lBURY");
@@ -87,12 +82,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
     private void addTroll(int slot, Material material, String command, String name) {
         ItemStack item = new ItemBuilder(material)
                 .setName(name)
-                .setLore(
-                        "",
-                        "&r&f" + subcommands.get(command).getDescription(),
-                        "",
-                        "&r&e(Right-click for help)"
-                )
+                .setLore(Util.getLocalizedList("troll.gui.troll.lore", subcommands.get(command).getDescription()))
                 .hideAttributes()
                 .build();
 
@@ -103,7 +93,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         if (!(sender instanceof Player)) {
-            throw new CommandException("&cOnly players can run this command!");
+            throw new CommandException(Util.getLocalized("command.players-only"));
         }
 
         Player player = (Player) sender;

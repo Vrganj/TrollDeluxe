@@ -18,7 +18,7 @@ public class SmiteSubcommand extends Subcommand {
             target.getWorld().strikeLightningEffect(target.getLocation());
         }
 
-        Util.send(sender, "&e" + targets.size() + " entities &fhave been struck!");
+        Util.sendLocalized(sender, "troll.smite.struck", targets.size());
     }
 
     @Override

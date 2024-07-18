@@ -15,10 +15,10 @@ public class OpSubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            Util.sendRaw(target, "&7&o[Server: Made " + target.getName() + " a server operator]");
+            Util.sendRawLocalized(target, "troll.op.message", target.getName());
         }
 
-        Util.send(sender, "Sent a fake op message to &e" + targets.size() + " players!");
+        Util.sendLocalized(sender, "troll.op.sent", targets.size());
     }
 
     @Override

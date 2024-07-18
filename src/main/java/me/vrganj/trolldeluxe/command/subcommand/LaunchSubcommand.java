@@ -25,7 +25,7 @@ public class LaunchSubcommand extends Subcommand {
             target.setVelocity(new Vector(0.0, plugin.getConfig().getDouble("launch velocity", 100), 0.0));
         }
 
-        Util.send(sender, "Launched &e" + targets.size() + " entities!");
+        Util.sendLocalized(sender, "troll.launch.launched", targets.size());
     }
 
     @Override

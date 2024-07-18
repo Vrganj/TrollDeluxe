@@ -39,7 +39,7 @@ public class PotatoSubcommand extends Subcommand {
             }
         }
 
-        Util.send(sender, "&e" + args[1] + " &fhave been potatoed!");
+        Util.sendLocalized(sender, "troll.potato.potatoed", args[1]);
     }
 
     private ItemStack[] clone(ItemStack[] itemStacks) {

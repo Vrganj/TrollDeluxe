@@ -1,6 +1,3 @@
-# Fake join message for /td join
-join message: '&e%s &ejoined the game'
-
 # How many ticks it takes for the TNT
 # spawned by /td tnt to blow up
 tnt fuse ticks: 40

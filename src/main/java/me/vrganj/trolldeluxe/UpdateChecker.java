@@ -28,7 +28,7 @@ public class UpdateChecker implements Listener {
         String currentVersion = plugin.getDescription().getVersion();
 
         if (player.isOp() && latestVersion != null && !latestVersion.equals(currentVersion)) {
-            Util.send(player, "Update available: &e" + currentVersion + " &8\u00bb &e" + latestVersion);
+            Util.sendLocalized(player, "update.available", currentVersion, latestVersion);
         }
     }
 

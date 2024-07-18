@@ -28,9 +28,9 @@ public class DemoSubcommand extends Subcommand {
                 method.invoke(target);
             }
 
-            Util.send(sender, "Displayed demo screen to &e" + args[1] + "!");
+            Util.sendLocalized(sender, "troll.demo.displayed", args[1]);
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-            throw new CommandException("&cThis feautre only works on 1.18+");
+            throw new CommandException(Util.getLocalized("command.invalid-version", "1.18+"));
         }
     }
 

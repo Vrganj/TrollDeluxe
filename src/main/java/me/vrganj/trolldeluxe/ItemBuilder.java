@@ -5,8 +5,9 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ItemBuilder {
     private final ItemStack item;
@@ -26,9 +27,13 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setLore(String... lore) {
-        meta.setLore(Stream.of(lore).map(Util::translate).collect(Collectors.toList()));
+    public ItemBuilder setLore(List<String> lore) {
+        meta.setLore(lore.stream().map(Util::translate).collect(Collectors.toList()));
         return this;
+    }
+
+    public ItemBuilder setLore(String... lore) {
+        return setLore(Arrays.asList(lore));
     }
 
     public ItemBuilder hideAttributes() {
