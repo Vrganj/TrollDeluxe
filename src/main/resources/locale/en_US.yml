@@ -100,7 +100,7 @@ troll:
     sent: "Sent a fake op message to &e{0} players!"
 
   potato:
-    potated: "&e{0} &fhave been potatoed!"
+    potatoed: "&e{0} &fhave been potatoed!"
 
   reload:
     reloaded: "Reloaded the configuration!"
