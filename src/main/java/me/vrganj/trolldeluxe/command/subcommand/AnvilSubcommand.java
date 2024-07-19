@@ -3,7 +3,6 @@ package me.vrganj.trolldeluxe.command.subcommand;
 import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
@@ -18,7 +17,7 @@ public class AnvilSubcommand extends Subcommand {
 
         for (Entity target : targets) {
             Block block = target.getLocation().getBlock().getRelative(0, 5, 0);
-            block.setType(Material.DAMAGED_ANVIL);
+            block.setType(Util.getMaterial("DAMAGED_ANVIL", "ANVIL"));
         }
 
         Util.sendLocalized(sender, "troll.anvil.dropped", targets.size());

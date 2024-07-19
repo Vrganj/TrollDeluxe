@@ -14,6 +14,7 @@ import java.util.Set;
 public class CarrySubcommand extends Subcommand {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void execute(CommandSender sender, String[] args) throws CommandException {
         if (!(sender instanceof Player)) {
             throw new CommandException(Util.getLocalized("command.players-only"));
@@ -27,8 +28,8 @@ public class CarrySubcommand extends Subcommand {
         Entity top = player;
         stack.add(top);
 
-        while (top != null && !top.getPassengers().isEmpty()) {
-            top = top.getPassengers().get(0);
+        while (top != null && top.getPassenger() != null) {
+            top = top.getPassenger();
 
             if (top != null) {
                 stack.add(top);

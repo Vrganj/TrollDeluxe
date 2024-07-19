@@ -26,10 +26,9 @@ public class WolfSubcommand extends Subcommand {
 
         for (Player target : targets) {
             for (int i = 0; i < wolves; ++i) {
-                target.getWorld().spawn(target.getLocation(), Wolf.class, entity -> {
-                    entity.setAngry(true);
-                    entity.setTarget(target);
-                });
+                Wolf wolf = target.getWorld().spawn(target.getLocation(), Wolf.class);
+                wolf.setAngry(true);
+                wolf.setTarget(target);
             }
         }
 

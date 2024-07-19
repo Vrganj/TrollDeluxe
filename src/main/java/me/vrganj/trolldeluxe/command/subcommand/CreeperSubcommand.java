@@ -3,7 +3,6 @@ package me.vrganj.trolldeluxe.command.subcommand;
 import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
-import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -16,7 +15,7 @@ public class CreeperSubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            target.playSound(target.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1.0f, 1.0f);
+            target.playSound(target.getLocation(), Util.getSound("ENTITY_CREEPER_PRIMED", "CREEPER_HISS"), 1.0f, 1.0f);
         }
 
         Util.sendLocalized(sender, "troll.creeper.creeped", targets.size());

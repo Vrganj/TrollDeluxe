@@ -7,7 +7,6 @@ import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -35,14 +34,14 @@ public class GuiSubcommand extends Subcommand implements Listener {
         this.subcommands = subcommands;
         this.inventory = Bukkit.createInventory(null, 5 * 9, plugin.toString());
 
-        ItemStack border = new ItemBuilder(Material.YELLOW_STAINED_GLASS_PANE).setName("&r").build();
+        ItemStack border = new ItemBuilder(Util.getMaterial("YELLOW_STAINED_GLASS_PANE", "STAINED_GLASS_PANE")).setName("&r").build();
 
         for (int i = 0; i < 9; ++i) {
             inventory.setItem(i, border);
             inventory.setItem(inventory.getSize() - 1 - i, border);
         }
 
-        ItemStack note = new ItemBuilder(Material.WRITABLE_BOOK)
+        ItemStack note = new ItemBuilder(Util.getMaterial("WRITABLE_BOOK", "BOOK_AND_QUILL"))
                 .setName(Util.getLocalized("troll.gui.note.name"))
                 .setLore(Util.getLocalizedList("troll.gui.note.lore"))
                 .build();
@@ -53,16 +52,16 @@ public class GuiSubcommand extends Subcommand implements Listener {
         // TODO: localize troll names
         addTroll(10, Material.GOLD_INGOT, "eco", "&6&lFAKE ECO");
         addTroll(11, Material.COMPASS, "flip", "&6&lFLIP");
-        addTroll(12, Material.COARSE_DIRT, "bury", "&6&lBURY");
+        addTroll(12, Util.getMaterial("COARSE_DIRT", "DIRT"), "bury", "&6&lBURY");
         addTroll(13, Material.ANVIL, "anvil", "&6&lANVIL");
         addTroll(14, Material.LEATHER_HELMET, "ride", "&6&lRIDE");
-        addTroll(15, Material.OAK_BOAT, "carry", "&6&lCARRY");
-        addTroll(16, Material.ENDER_EYE, "blind", "&6&lBLIND");
+        addTroll(15, Util.getMaterial("OAK_BOAT", "BOAT"), "carry", "&6&lCARRY");
+        addTroll(16, Util.getMaterial("ENDER_EYE", "EYE_OF_ENDER"), "blind", "&6&lBLIND");
 
         addTroll(18, Material.ICE, "freeze", "&6&lFREEZE");
         addTroll(19, Material.BEDROCK, "cage", "&6&lCAGE");
         addTroll(20, Material.SLIME_BALL, "launch", "&6&lLAUNCH");
-        addTroll(21, Material.CREEPER_HEAD, "creeper", "&6&lCREEPER");
+        addTroll(21, Util.getMaterial("CREEPER_HEAD", "SULPHUR"), "creeper", "&6&lCREEPER");
         addTroll(22, Material.FLINT_AND_STEEL, "burn", "&6&lBURN");
         addTroll(23, Material.GOLD_INGOT, "gmc", "&6&lFAKE GMC");
         addTroll(24, Material.DIAMOND, "op", "&6&lFAKE OP");
@@ -70,12 +69,12 @@ public class GuiSubcommand extends Subcommand implements Listener {
         addTroll(26, Material.ENDER_PEARL, "shuffle", "&6&lSHUFFLE");
 
         addTroll(27, Material.TNT, "tnt", "&6&lTNT");
-        addTroll(28, Material.POTATO, "potato", "&6&lPOTATO");
+        addTroll(28, Util.getMaterial("POTATO_ITEM", "POTATO"), "potato", "&6&lPOTATO");
         addTroll(29, Material.POISONOUS_POTATO, "unpotato", "&6&lUNPOTATO");
-        addTroll(30, Material.KNOWLEDGE_BOOK, "demo", "&6&lDEMO");
+        addTroll(30, Util.getMaterial("KNOWLEDGE_BOOK", "BARRIER"), "demo", "&6&lDEMO");
         addTroll(32, Material.CHEST, "keepinventory", "&6&lFAKE KEEP INVENTORY");
         addTroll(33, Material.COOKED_CHICKEN, "starve", "&6&lSTARVE");
-        addTroll(34, Material.RED_BED, "deathbed", "&6&lDEATHBED");
+        addTroll(34, Util.getMaterial("RED_BED", "BED"), "deathbed", "&6&lDEATHBED");
         addTroll(35, Material.BONE, "wolf", "&6&lWOLF");
     }
 
@@ -108,17 +107,17 @@ public class GuiSubcommand extends Subcommand implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
 
-        if (event.getInventory() == inventory) {
+        if (inventory.equals(event.getInventory())) {
             event.setCancelled(true);
         }
 
         int slot = event.getSlot();
 
-        if (event.getClickedInventory() == inventory && slot >= 9 && slot < inventory.getSize() - 9) {
+        if (inventory.equals(event.getClickedInventory()) && slot >= 9 && slot < inventory.getSize() - 9) {
             String troll = trolls[slot];
 
             if (troll != null) {
-                player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 100f, 2f);
+                player.playSound(player.getLocation(), Util.getSound("UI_BUTTON_CLICK", "CLICK"), 100f, 2f);
 
                 if (troll.equals("help")) {
                     player.performCommand("trolldeluxe help");

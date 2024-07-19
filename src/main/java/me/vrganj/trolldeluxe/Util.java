@@ -1,6 +1,8 @@
 package me.vrganj.trolldeluxe;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -40,5 +42,21 @@ public class Util {
 
     public static void sendRaw(CommandSender target, String text) {
         target.sendMessage(translate(text));
+    }
+
+    public static Material getMaterial(String name, String fallback) {
+        try {
+            return Material.valueOf(name);
+        } catch (IllegalArgumentException ignore) {
+            return Material.valueOf(fallback);
+        }
+    }
+
+    public static Sound getSound(String name, String fallback) {
+        try {
+            return Sound.valueOf(name);
+        } catch (IllegalArgumentException ignore) {
+            return Sound.valueOf(fallback);
+        }
     }
 }

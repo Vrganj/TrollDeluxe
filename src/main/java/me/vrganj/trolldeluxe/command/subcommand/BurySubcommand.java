@@ -18,7 +18,7 @@ public class BurySubcommand extends Subcommand {
         Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
-            target.teleport(target.getLocation().subtract(0, target.getHeight() + 1, 0));
+            target.teleport(target.getLocation().subtract(0, 5, 0));
 
             Block block = target.getLocation().getBlock();
             block.setType(Material.AIR);

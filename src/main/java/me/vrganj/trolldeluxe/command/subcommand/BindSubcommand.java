@@ -59,7 +59,7 @@ public class BindSubcommand extends Subcommand implements Listener {
         }
 
         Player player = (Player) sender;
-        Material material = player.getInventory().getItemInMainHand().getType();
+        Material material = player.getInventory().getItemInHand().getType();
 
         if (material == Material.AIR) {
             throw new CommandException(Util.getLocalized("troll.bind.invalid-item"));
@@ -102,7 +102,7 @@ public class BindSubcommand extends Subcommand implements Listener {
             ItemStack tool;
 
             if (event.getHand() == EquipmentSlot.HAND) {
-                tool = player.getInventory().getItemInMainHand();
+                tool = player.getInventory().getItemInHand();
             } else {
                 tool = player.getInventory().getItemInOffHand();
             }

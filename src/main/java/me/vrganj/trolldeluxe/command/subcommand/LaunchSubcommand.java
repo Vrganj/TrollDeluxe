@@ -22,7 +22,7 @@ public class LaunchSubcommand extends Subcommand {
         Collection<Entity> targets = consumeEntities(sender, args, 1);
 
         for (Entity target : targets) {
-            target.setVelocity(new Vector(0.0, plugin.getConfig().getDouble("launch velocity", 100), 0.0));
+            target.setVelocity(new Vector(0.0, plugin.getConfig().getDouble("launch velocity", 20), 0.0));
         }
 
         Util.sendLocalized(sender, "troll.launch.launched", targets.size());

@@ -5,10 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -22,12 +19,20 @@ public abstract class Subcommand {
         return null;
     }
 
+    private List<Entity> selectEntities(CommandSender sender, String selector) {
+        try {
+            return Bukkit.selectEntities(sender, selector);
+        } catch (NoSuchMethodError ignore) {
+            return Collections.singletonList(Bukkit.getPlayer(selector));
+        }
+    }
+
     protected Set<Entity> consumeEntities(CommandSender sender, String[] args, int from) throws CommandException {
         Set<Entity> result = new HashSet<>();
 
         try {
             for (int i = from; i < args.length; ++i) {
-                result.addAll(Bukkit.selectEntities(sender, getString(args, i)));
+                result.addAll(selectEntities(sender, getString(args, i)));
             }
         } catch (IllegalArgumentException e) {
             throw new CommandException(e.getMessage());
@@ -45,7 +50,7 @@ public abstract class Subcommand {
 
         try {
             for (int i = from; i < args.length; ++i) {
-                for (Entity entity : Bukkit.selectEntities(sender, getString(args, i))) {
+                for (Entity entity : selectEntities(sender, getString(args, i))) {
                     if (entity instanceof Player) {
                         result.add((Player) entity);
                     }
@@ -66,7 +71,7 @@ public abstract class Subcommand {
         List<Entity> result;
 
         try {
-            result = Bukkit.selectEntities(sender, getString(args, index));
+            result = selectEntities(sender, getString(args, index));
         } catch (IllegalArgumentException e) {
             throw new CommandException(e.getMessage());
         }
@@ -92,7 +97,7 @@ public abstract class Subcommand {
         List<Player> result = new ArrayList<>();
 
         try {
-            for (Entity entity : Bukkit.selectEntities(sender, getString(args, index))) {
+            for (Entity entity : selectEntities(sender, getString(args, index))) {
                 if (entity instanceof Player) {
                     result.add((Player) entity);
                 }
