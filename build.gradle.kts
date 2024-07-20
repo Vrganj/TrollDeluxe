@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "me.vrganj"
-version = "0.9.6-SNAPSHOT"
+version = "0.9.6"
 
 repositories {
     mavenCentral()
