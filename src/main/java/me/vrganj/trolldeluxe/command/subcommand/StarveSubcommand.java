@@ -18,12 +18,7 @@ public class StarveSubcommand extends Subcommand {
             target.setFoodLevel(0);
         }
 
-        Util.sendLocalized(sender, "troll.starve.starved", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Clear players' hunger bar";
+        Util.sendLocalized(sender, "subcommand.starve.starved", targets.size());
     }
 
     @Override

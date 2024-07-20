@@ -32,12 +32,7 @@ public class WolfSubcommand extends Subcommand {
             }
         }
 
-        Util.sendLocalized(sender, "troll.wolf.spawned", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Summon angry wolves";
+        Util.sendLocalized(sender, "subcommand.wolf.spawned", targets.size());
     }
 
     @Override

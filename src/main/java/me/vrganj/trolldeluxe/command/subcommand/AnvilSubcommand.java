@@ -20,12 +20,7 @@ public class AnvilSubcommand extends Subcommand {
             block.setType(Util.getMaterial("DAMAGED_ANVIL", "ANVIL"));
         }
 
-        Util.sendLocalized(sender, "troll.anvil.dropped", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Drop an anvil on entities";
+        Util.sendLocalized(sender, "subcommand.anvil.dropped", targets.size());
     }
 
     @Override

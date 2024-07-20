@@ -52,12 +52,7 @@ public class CarrySubcommand extends Subcommand {
             top = target;
         }
 
-        Util.sendLocalized(player, "troll.carry.carrying", count);
-    }
-
-    @Override
-    public String getDescription() {
-        return "Carry entities";
+        Util.sendLocalized(player, "subcommand.carry.carrying", count);
     }
 
     @Override

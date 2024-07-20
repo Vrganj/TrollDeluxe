@@ -15,15 +15,10 @@ public class KeepInventorySubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            Util.sendRawLocalized(target, "troll.keepinventory.message");
+            Util.sendRawLocalized(target, "subcommand.keepinventory.message");
         }
 
-        Util.sendLocalized(sender, "troll.keepinventory.sent", args[1]);
-    }
-
-    @Override
-    public String getDescription() {
-        return "Send a fake keepInventory message";
+        Util.sendLocalized(sender, "subcommand.keepinventory.sent", args[1]);
     }
 
     @Override

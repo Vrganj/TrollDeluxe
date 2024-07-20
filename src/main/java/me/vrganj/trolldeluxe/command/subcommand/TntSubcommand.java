@@ -26,12 +26,7 @@ public class TntSubcommand extends Subcommand {
             tnt.setFuseTicks(plugin.getConfig().getInt("tnt fuse ticks", 40));
         }
 
-        Util.sendLocalized(sender, "troll.tnt.spawned", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Spawn TNT next to entities";
+        Util.sendLocalized(sender, "subcommand.tnt.spawned", targets.size());
     }
 
     @Override

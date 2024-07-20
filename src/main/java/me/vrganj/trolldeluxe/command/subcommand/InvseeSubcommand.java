@@ -18,12 +18,7 @@ public class InvseeSubcommand extends Subcommand {
         Player target = getPlayer(args, 1);
 
         player.openInventory(target.getInventory());
-        Util.sendLocalized(player, "troll.invsee.opened", player.getName());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Mess around with a player's inventory";
+        Util.sendLocalized(player, "subcommand.invsee.opened", player.getName());
     }
 
     @Override

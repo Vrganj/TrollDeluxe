@@ -62,14 +62,14 @@ public class BindSubcommand extends Subcommand implements Listener {
         Material material = player.getInventory().getItemInHand().getType();
 
         if (material == Material.AIR) {
-            throw new CommandException(Util.getLocalized("troll.bind.invalid-item"));
+            throw new CommandException(Util.getLocalized("subcommand.bind.invalid-item"));
         }
 
         if (args.length == 1) {
             Map<Material, String> binding = bindings.get(player.getUniqueId());
 
             if (binding == null || binding.get(material) == null) {
-                throw new CommandException(Util.getLocalized("troll.bind.no-binding"));
+                throw new CommandException(Util.getLocalized("subcommand.bind.no-binding"));
             }
 
             binding.remove(material);
@@ -78,7 +78,7 @@ public class BindSubcommand extends Subcommand implements Listener {
                 bindings.remove(player.getUniqueId());
             }
 
-            Util.sendLocalized(player, "troll.bind.binding-removed");
+            Util.sendLocalized(player, "subcommand.bind.binding-removed");
 
             return;
         }
@@ -92,7 +92,7 @@ public class BindSubcommand extends Subcommand implements Listener {
         Map<Material, String> binding = bindings.computeIfAbsent(player.getUniqueId(), uuid -> new HashMap<>());
         binding.put(material, subcommand);
 
-        Util.sendLocalized(player, "troll.bind.binding-created", material, subcommand);
+        Util.sendLocalized(player, "subcommand.bind.binding-created", material, subcommand);
     }
 
     @EventHandler
@@ -130,11 +130,6 @@ public class BindSubcommand extends Subcommand implements Listener {
         }
 
         return null;
-    }
-
-    @Override
-    public String getDescription() {
-        return "Bind an item to a troll";
     }
 
     @Override

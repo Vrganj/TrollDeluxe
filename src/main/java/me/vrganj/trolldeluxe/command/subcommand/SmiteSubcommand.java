@@ -18,12 +18,7 @@ public class SmiteSubcommand extends Subcommand {
             target.getWorld().strikeLightningEffect(target.getLocation());
         }
 
-        Util.sendLocalized(sender, "troll.smite.struck", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Strike players with no damage";
+        Util.sendLocalized(sender, "subcommand.smite.struck", targets.size());
     }
 
     @Override

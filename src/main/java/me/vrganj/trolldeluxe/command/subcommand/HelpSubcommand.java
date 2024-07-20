@@ -19,10 +19,12 @@ public class HelpSubcommand extends Subcommand {
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         if (args.length < 2) {
-            Util.sendLocalized(sender, "troll.help.subcommands");
+            Util.sendLocalized(sender, "subcommand.help.subcommands");
 
-            for (Subcommand subcommand : subcommands.values()) {
-                Util.sendRawLocalized(sender, "troll.help.subcommand", subcommand.getUsage(), subcommand.getDescription());
+            for (Map.Entry<String, Subcommand> entry : subcommands.entrySet()) {
+                String name = entry.getKey();
+                Subcommand subcommand = entry.getValue();
+                Util.sendRawLocalized(sender, "subcommand.help.message.subcommand", subcommand.getUsage(), Util.getLocalized("subcommand." + name + ".description"));
             }
 
             return;
@@ -34,15 +36,10 @@ public class HelpSubcommand extends Subcommand {
             throw new CommandException(Util.getLocalized("command.invalid-subcommand"));
         }
 
-        Util.sendLocalized(sender, "troll.help.help", args[1].toLowerCase());
-        Util.sendRawLocalized(sender, "troll.help.description", subcommand.getDescription());
-        Util.sendRawLocalized(sender, "troll.help.usage", subcommand.getUsage());
-        Util.sendRawLocalized(sender, "troll.help.permission", subcommand.getPermission());
-    }
-
-    @Override
-    public String getDescription() {
-        return "List all of the subcommands or show info about a specific one";
+        Util.sendLocalized(sender, "subcommand.help.message.help", args[1].toLowerCase());
+        Util.sendRawLocalized(sender, "subcommand.help.message.description", Util.getLocalized("subcommand." + args[1].toLowerCase() + ".description"));
+        Util.sendRawLocalized(sender, "subcommand.help.message.usage", subcommand.getUsage());
+        Util.sendRawLocalized(sender, "subcommand.help.message.permission", subcommand.getPermission());
     }
 
     @Override

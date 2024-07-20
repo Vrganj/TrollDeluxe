@@ -18,12 +18,7 @@ public class DeathbedSubcommand extends Subcommand {
             target.setHealth(1);
         }
 
-        Util.sendLocalized(sender, "troll.deathbed.damaged", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Set players' health to half a heart";
+        Util.sendLocalized(sender, "subcommand.deathbed.damaged", targets.size());
     }
 
     @Override

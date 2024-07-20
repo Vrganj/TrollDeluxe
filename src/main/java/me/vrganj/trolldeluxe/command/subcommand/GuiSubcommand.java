@@ -42,8 +42,8 @@ public class GuiSubcommand extends Subcommand implements Listener {
         }
 
         ItemStack note = new ItemBuilder(Util.getMaterial("WRITABLE_BOOK", "BOOK_AND_QUILL"))
-                .setName(Util.getLocalized("troll.gui.note.name"))
-                .setLore(Util.getLocalizedList("troll.gui.note.lore"))
+                .setName(Util.getLocalized("subcommand.gui.note.name"))
+                .setLore(Util.getLocalizedList("subcommand.gui.note.lore"))
                 .build();
 
         inventory.setItem(inventory.getSize() - 5, note);
@@ -81,7 +81,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
     private void addTroll(int slot, Material material, String command, String name) {
         ItemStack item = new ItemBuilder(material)
                 .setName(name)
-                .setLore(Util.getLocalizedList("troll.gui.troll.lore", subcommands.get(command).getDescription()))
+                .setLore(Util.getLocalizedList("subcommand.gui.troll.lore", Util.getLocalized("subcommand." + command + ".description")))
                 .hideAttributes()
                 .build();
 
@@ -141,11 +141,6 @@ public class GuiSubcommand extends Subcommand implements Listener {
         // the demo screen.
 
         targetMap.remove(event.getPlayer().getUniqueId());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Open a simple troll GUI";
     }
 
     @Override

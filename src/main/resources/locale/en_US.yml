@@ -8,55 +8,70 @@ command:
   invalid-subcommand: "&cUnknown subcommand! Use /td help"
   invalid-version: "&cThis command only works on {0}!"
 
-troll:
+subcommand:
   anvil:
+    description: "Drop an anvil on entities"
     dropped: "&fDropped an anvil on &e{0} entities!"
 
   bind:
+    description: "Bind an item to a troll"
     invalid-item: "&cYou can't bind air!"
     no-binding: "&cUse /trolldeluxe bind <troll> while holding an item"
     binding-removed: "&aRemoved binding from your item!"
     binding-created: "&aBound {0} to {1}"
 
   blind:
+    description: "Blind players for a minute"
     blinded: "Blinded &e{0} players!"
 
   burn:
+    description: "Set entities on fire"
     burned: "Set &e{0} entities &fon fire!"
 
   bury:
+    description: "Bury entities underground"
     buried: "&e{0} entities &fhave been buried!"
 
   cage:
+    description: "Spawn a bedrock cage around entities"
     caged: "&e{0} entities &fhave been caged!"
 
   carry:
+    description: "Carry entities"
     carrying: "Started carrying &e{0} entities!"
 
   creeper:
+    description: "Play a creeper sound to players"
     creeped: "&e{0} players &fhave been creeped out!"
 
   deathbed:
+    description: "Set players' health to half a heart"
     damaged: "&e{0} players &fhave been damaged to half a heart!"
 
   demo:
+    description: "Show a demo screen to players"
     displayed: "Displayed demo screen to &e{0}!"
 
   eco:
+    description: "Show a fake balance change to players"
     message: "&a$1000000 has been added to your account."
     showed: "Showed a fake eco message to &e{0} players!"
 
   flip:
+    description: "Flip entities to the opposite direction!"
     flipped: "Flipped &e{0} entities!"
 
   freeze:
+    description: "Freeze players for a minute"
     froze: "Froze &e{0} entities!"
 
   gmc:
+    description: "Send a fake gamemode change message"
     message: "&7&o[Server: Set {0}''s game mode to Creative Mode]"
     sent: "Sent a fake gmc message to &e{0} players!"
 
   gui:
+    description: "Open a simple troll GUI"
     note:
       name: "&eAnd that's not all!"
       lore:
@@ -74,58 +89,75 @@ troll:
         - "&r&e(Right-click for help)"
 
   help:
+    description: "List all of the subcommands or show info about a specific one"
     subcommands: "&f/trolldeluxe subcommands:"
-    subcommand: "&8» &e{0} &f{1}"
-    help: "&e/trolldeluxe {0} &fhelp:"
-    description: "&8» &eDescription: &f{0}"
-    usage: "&8» &eUsage: &f/td {0}"
-    permission: "&8» &ePermission: &f{0}"
+    message:
+      subcommand: "&8» &e{0} &f{1}"
+      help: "&e/trolldeluxe {0} &fhelp:"
+      description: "&8» &eDescription: &f{0}"
+      usage: "&8» &eUsage: &f/td {0}"
+      permission: "&8» &ePermission: &f{0}"
 
   invsee:
+    description: "Mess around with a player's inventory"
     opened: "&fOpened inventory of &e{0}!"
 
   join:
+    description: "Send a fake player join message"
     message: "&e{0} &ejoined the game"
     sent: "Sent a fake join message to &e{0} entities!"
 
   keepinventory:
+    description: "Send a fake keepInventory message"
     message: "&7&o[Server: Gamerule keepInventory is now set to: true]"
     sent: "Sent fake keepInventory message to &e{0}!"
 
   launch:
+    description: "Launch entities far up into the sky"
     launched: "Launched &e{0} entities!"
 
   op:
+    description: "Send a fake op message"
     message: "&7&o[Server: Made {0} a server operator]"
     sent: "Sent a fake op message to &e{0} players!"
 
   potato:
+    description: "Fill players up with potatoes!"
     potatoed: "&e{0} &fhave been potatoed!"
 
   reload:
+    description: "Reload the configuration"
     reloaded: "Reloaded the configuration!"
 
   ride:
+    description: "Ride on top of an entity"
     riding: "&fRiding &e{0}!"
     self: "&cYou can't ride yourself"
 
   say:
+    description: "Make players say or execute something"
     said: "Made &e{0} players &fsay &e{1}&e!"
 
   shuffle:
+    description: "Shuffle the positions of entities!"
     shuffled: "Shuffled &e{0} entities!"
 
   smite:
+    description: "Strike players with no damage"
     struck: "&e{0} entities &fhave been struck!"
 
   starve:
+    description: "Clear players' hunger bar"
     starved: "Starved &e{0} players!"
 
   tnt:
+    description: "Spawn TNT next to entities"
     spawned: "Spawned TNT next to &e{0} entities!"
 
   unpotato:
+    description: "Undo the potato troll!"
     unpotatoed: "&e{0} &fhave been unpotatoed!"
 
   wolf:
+    description: "Summon angry wolves"
     spawned: "Spawned wolves around &e{0} players!"

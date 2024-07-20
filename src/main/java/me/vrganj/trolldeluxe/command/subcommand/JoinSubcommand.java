@@ -16,15 +16,10 @@ public class JoinSubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 2);
 
         for (Player target : targets) {
-            Util.sendRawLocalized(target, "troll.join.message", fakePlayer);
+            Util.sendRawLocalized(target, "subcommand.join.message", fakePlayer);
         }
 
-        Util.sendLocalized(sender, "troll.join.sent", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Send a fake player join message";
+        Util.sendLocalized(sender, "subcommand.join.sent", targets.size());
     }
 
     @Override

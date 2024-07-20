@@ -15,15 +15,10 @@ public class EcoSubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            Util.sendRawLocalized(target, "troll.eco.message");
+            Util.sendRawLocalized(target, "subcommand.eco.message");
         }
 
-        Util.sendLocalized(sender, "troll.eco.showed", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Show a fake balance change to players";
+        Util.sendLocalized(sender, "subcommand.eco.showed", targets.size());
     }
 
     @Override

@@ -33,12 +33,7 @@ public class UnpotatoSubcommand extends Subcommand {
             }
         }
 
-        Util.sendLocalized(sender, "troll.unpotato.unpotatoed", args[1]);
-    }
-
-    @Override
-    public String getDescription() {
-        return "Undo the potato troll!";
+        Util.sendLocalized(sender, "subcommand.unpotato.unpotatoed", args[1]);
     }
 
     @Override

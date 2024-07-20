@@ -28,15 +28,10 @@ public class DemoSubcommand extends Subcommand {
                 method.invoke(target);
             }
 
-            Util.sendLocalized(sender, "troll.demo.displayed", args[1]);
+            Util.sendLocalized(sender, "subcommand.demo.displayed", args[1]);
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
             throw new CommandException(Util.getLocalized("command.invalid-version", "1.18+"));
         }
-    }
-
-    @Override
-    public String getDescription() {
-        return "Show a demo screen to players";
     }
 
     @Override

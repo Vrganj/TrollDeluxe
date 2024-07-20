@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 
 public abstract class Subcommand {
     public abstract void execute(CommandSender sender, String[] args) throws CommandException;
-    public abstract String getDescription(); // TODO: localization
     public abstract String getPermission();
     public abstract String getUsage(); // TODO: localization
 

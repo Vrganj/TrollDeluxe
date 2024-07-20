@@ -20,12 +20,7 @@ public class BlindSubcommand extends Subcommand {
             target.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60*20, 1));
         }
 
-        Util.sendLocalized(sender, "troll.blind.blinded", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Blind players for a minute";
+        Util.sendLocalized(sender, "subcommand.blind.blinded", targets.size());
     }
 
     @Override

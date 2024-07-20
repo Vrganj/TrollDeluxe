@@ -31,12 +31,7 @@ public class CageSubcommand extends Subcommand {
             }
         }
 
-        Util.sendLocalized(sender, "troll.cage.caged", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Spawn a bedrock cage around entities";
+        Util.sendLocalized(sender, "subcommand.cage.caged", targets.size());
     }
 
     @Override

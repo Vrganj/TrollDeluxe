@@ -18,12 +18,7 @@ public class SaySubcommand extends Subcommand {
             target.chat(message);
         }
 
-        Util.sendLocalized(sender, "troll.say.said", targets.size(), message);
-    }
-
-    @Override
-    public String getDescription() {
-        return "Make players say or execute something";
+        Util.sendLocalized(sender, "subcommand.say.said", targets.size(), message);
     }
 
     @Override

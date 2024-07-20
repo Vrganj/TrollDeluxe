@@ -31,12 +31,7 @@ public class ShuffleSubcommand extends Subcommand {
             list.get(i).teleport(shuffled.get(i));
         }
 
-        Util.sendLocalized(sender, "troll.shuffle.shuffled", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Shuffle the positions of entities!";
+        Util.sendLocalized(sender, "subcommand.shuffle.shuffled", targets.size());
     }
 
     @Override

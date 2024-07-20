@@ -23,15 +23,10 @@ public class RideSubcommand extends Subcommand {
         if (player != target) {
             target.addPassenger(player);
 
-            Util.sendLocalized(player, "troll.ride.riding", target.getName());
+            Util.sendLocalized(player, "subcommand.ride.riding", target.getName());
         } else {
-            throw new CommandException(Util.getLocalized("troll.ride.self"));
+            throw new CommandException(Util.getLocalized("subcommand.ride.self"));
         }
-    }
-
-    @Override
-    public String getDescription() {
-        return "Ride on top of an entity";
     }
 
     @Override

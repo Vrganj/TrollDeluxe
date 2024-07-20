@@ -29,7 +29,7 @@ public class Util {
     }
 
     public static String getLocalized(String key, Object... values) {
-        return MessageFormat.format(configuration.getString(key), values);
+        return MessageFormat.format(configuration.getString(key, "&cMissing localization (" + key + ")"), values);
     }
 
     public static List<String> getLocalizedList(String key, Object... values) {

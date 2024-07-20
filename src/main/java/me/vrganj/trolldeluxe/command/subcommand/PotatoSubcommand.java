@@ -38,7 +38,7 @@ public class PotatoSubcommand extends Subcommand {
             }
         }
 
-        Util.sendLocalized(sender, "troll.potato.potatoed", args[1]);
+        Util.sendLocalized(sender, "subcommand.potato.potatoed", args[1]);
     }
 
     private ItemStack[] clone(ItemStack[] itemStacks) {
@@ -51,11 +51,6 @@ public class PotatoSubcommand extends Subcommand {
         }
 
         return result;
-    }
-
-    @Override
-    public String getDescription() {
-        return "Fill players up with potatoes!";
     }
 
     @Override

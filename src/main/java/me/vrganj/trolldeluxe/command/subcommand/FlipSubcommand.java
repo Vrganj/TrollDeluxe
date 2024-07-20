@@ -23,12 +23,7 @@ public class FlipSubcommand extends Subcommand {
             target.teleport(location);
         }
 
-        Util.sendLocalized(sender, "troll.flip.flipped", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Flip entities to the opposite direction!";
+        Util.sendLocalized(sender, "subcommand.flip.flipped", targets.size());
     }
 
     @Override

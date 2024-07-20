@@ -15,15 +15,10 @@ public class GmcSubcommand extends Subcommand {
         Collection<Player> targets = consumePlayers(sender, args, 1);
 
         for (Player target : targets) {
-            Util.sendRawLocalized(target, "troll.gmc.message", target.getName());
+            Util.sendRawLocalized(target, "subcommand.gmc.message", target.getName());
         }
 
-        Util.sendLocalized(sender, "troll.gmc.sent", targets.size());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Send a fake gamemode change message";
+        Util.sendLocalized(sender, "subcommand.gmc.sent", targets.size());
     }
 
     @Override
