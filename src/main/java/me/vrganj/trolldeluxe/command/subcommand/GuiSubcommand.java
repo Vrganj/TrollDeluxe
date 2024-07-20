@@ -6,6 +6,7 @@ import me.vrganj.trolldeluxe.Util;
 import me.vrganj.trolldeluxe.command.CommandException;
 import me.vrganj.trolldeluxe.command.Subcommand;
 import org.bukkit.Bukkit;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -16,6 +17,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +36,16 @@ public class GuiSubcommand extends Subcommand implements Listener {
         this.subcommands = subcommands;
         this.inventory = Bukkit.createInventory(null, 5 * 9, plugin.toString());
 
-        ItemStack border = new ItemBuilder(Util.getMaterial("YELLOW_STAINED_GLASS_PANE", "STAINED_GLASS_PANE")).setName("&r").build();
+        ItemStack border;
+
+        try {
+            border = new ItemBuilder(Material.YELLOW_STAINED_GLASS_PANE).setName("").build();
+        } catch (NoSuchFieldError ignore) {
+            border = new ItemStack(Material.getMaterial("STAINED_GLASS_PANE"), 1, DyeColor.YELLOW.getWoolData());
+            ItemMeta meta = border.getItemMeta();
+            meta.setDisplayName("");
+            border.setItemMeta(meta);
+        }
 
         for (int i = 0; i < 9; ++i) {
             inventory.setItem(i, border);
