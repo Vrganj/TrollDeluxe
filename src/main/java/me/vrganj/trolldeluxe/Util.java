@@ -18,7 +18,8 @@ public class Util {
         return ChatColor.translateAlternateColorCodes('&', text);
     }
 
-    private static Configuration configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(TrollDeluxe.class.getClassLoader().getResourceAsStream("locale/en_US.yml")));
+    // TODO: make configurable
+    private static final Configuration configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(TrollDeluxe.class.getClassLoader().getResourceAsStream("locale/en_US.yml")));
 
     public static void sendLocalized(CommandSender target, String key, Object... values) {
         send(target, getLocalized(key, values));

@@ -24,16 +24,14 @@ import java.util.Map;
 import java.util.UUID;
 
 public class GuiSubcommand extends Subcommand implements Listener {
-    private final Map<String, Subcommand> subcommands;
 
     private final Map<UUID, String> targetMap = new HashMap<>();
     private final String[] trolls = new String[5*9];
     private final Inventory inventory;
 
-    public GuiSubcommand(TrollDeluxe plugin, Map<String, Subcommand> subcommands) {
+    public GuiSubcommand(TrollDeluxe plugin) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
 
-        this.subcommands = subcommands;
         this.inventory = Bukkit.createInventory(null, 5 * 9, plugin.toString());
 
         ItemStack border;

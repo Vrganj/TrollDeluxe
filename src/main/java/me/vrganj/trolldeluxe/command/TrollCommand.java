@@ -46,7 +46,7 @@ public class TrollCommand implements TabExecutor {
         subcommands.put("wolf", new WolfSubcommand(plugin));
 
         subcommands.put("bind", new BindSubcommand(plugin));
-        subcommands.put("gui", new GuiSubcommand(plugin, subcommands));
+        subcommands.put("gui", new GuiSubcommand(plugin));
         subcommands.put("help", new HelpSubcommand(subcommands));
     }
 
