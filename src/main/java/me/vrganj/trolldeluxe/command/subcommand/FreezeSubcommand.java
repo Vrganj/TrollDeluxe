@@ -25,12 +25,7 @@ public class FreezeSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.freeze";
-    }
-
-    @Override
-    public String getUsage() {
-        return "freeze <players>";
+    public String getName() {
+        return "freeze";
     }
 }

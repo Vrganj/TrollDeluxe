@@ -24,12 +24,7 @@ public class AnvilSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.anvil";
-    }
-
-    @Override
-    public String getUsage() {
-        return "anvil <entities>";
+    public String getName() {
+        return "anvil";
     }
 }

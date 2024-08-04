@@ -22,12 +22,7 @@ public class CreeperSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.creeper";
-    }
-
-    @Override
-    public String getUsage() {
-        return "creeper <players>";
+    public String getName() {
+        return "creeper";
     }
 }

@@ -1,5 +1,6 @@
 package me.vrganj.trolldeluxe.command;
 
+import me.vrganj.trolldeluxe.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
@@ -10,9 +11,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public abstract class Subcommand {
+
     public abstract void execute(CommandSender sender, String[] args) throws CommandException;
-    public abstract String getPermission();
-    public abstract String getUsage(); // TODO: localization
+    public abstract String getName();
+
+    public String getPermission() {
+        return "trolldeluxe." + getName();
+    }
 
     public List<String> onTabComplete(CommandSender sender, String[] args) {
         return null;
@@ -127,7 +132,7 @@ public abstract class Subcommand {
             return args[index];
         }
 
-        throw new CommandException("&c/trolldeluxe " + getUsage());
+        throw new CommandException("&c/trolldeluxe " + Util.getLocalized("subcommand." + getName() + ".usage"));
     }
 
     protected String consume(String[] args, int from) throws CommandException {
@@ -135,6 +140,6 @@ public abstract class Subcommand {
             return Stream.of(args).skip(from).collect(Collectors.joining(" "));
         }
 
-        throw new CommandException("&c/trolldeluxe " + getUsage());
+        throw new CommandException("&c/trolldeluxe " + Util.getLocalized("subcommand." + getName() + ".usage"));
     }
 }

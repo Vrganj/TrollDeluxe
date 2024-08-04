@@ -15,39 +15,44 @@ import java.util.stream.Collectors;
 public class TrollCommand implements TabExecutor {
     private final Map<String, Subcommand> subcommands = new HashMap<>();
 
-    public TrollCommand(TrollDeluxe plugin) {
-        subcommands.put("anvil", new AnvilSubcommand());
-        subcommands.put("blind", new BlindSubcommand());
-        subcommands.put("burn", new BurnSubcommand());
-        subcommands.put("bury", new BurySubcommand());
-        subcommands.put("cage", new CageSubcommand());
-        subcommands.put("carry", new CarrySubcommand());
-        subcommands.put("creeper", new CreeperSubcommand());
-        subcommands.put("deathbed", new DeathbedSubcommand());
-        subcommands.put("demo", new DemoSubcommand());
-        subcommands.put("eco", new EcoSubcommand());
-        subcommands.put("flip", new FlipSubcommand());
-        subcommands.put("freeze", new FreezeSubcommand());
-        subcommands.put("gmc", new GmcSubcommand());
-        subcommands.put("invsee", new InvseeSubcommand());
-        subcommands.put("join", new JoinSubcommand());
-        subcommands.put("keepinventory", new KeepInventorySubcommand());
-        subcommands.put("launch", new LaunchSubcommand(plugin));
-        subcommands.put("op", new OpSubcommand());
-        subcommands.put("potato", new PotatoSubcommand(plugin));
-        subcommands.put("reload", new ReloadSubcommand(plugin));
-        subcommands.put("ride", new RideSubcommand());
-        subcommands.put("say", new SaySubcommand());
-        subcommands.put("shuffle", new ShuffleSubcommand());
-        subcommands.put("smite", new SmiteSubcommand());
-        subcommands.put("starve", new StarveSubcommand());
-        subcommands.put("tnt", new TntSubcommand(plugin));
-        subcommands.put("unpotato", new UnpotatoSubcommand(plugin));
-        subcommands.put("wolf", new WolfSubcommand(plugin));
+    private void register(Subcommand subcommand) {
+        // Add aliases here in the future
+        subcommands.put(subcommand.getName(), subcommand);
+    }
 
-        subcommands.put("bind", new BindSubcommand(plugin));
-        subcommands.put("gui", new GuiSubcommand(plugin));
-        subcommands.put("help", new HelpSubcommand(subcommands));
+    public TrollCommand(TrollDeluxe plugin) {
+        register(new AnvilSubcommand());
+        register(new BlindSubcommand());
+        register(new BurnSubcommand());
+        register(new BurySubcommand());
+        register(new CageSubcommand());
+        register(new CarrySubcommand());
+        register(new CreeperSubcommand());
+        register(new DeathbedSubcommand());
+        register(new DemoSubcommand());
+        register(new EcoSubcommand());
+        register(new FlipSubcommand());
+        register(new FreezeSubcommand());
+        register(new GmcSubcommand());
+        register(new InvseeSubcommand());
+        register(new JoinSubcommand());
+        register(new KeepInventorySubcommand());
+        register(new LaunchSubcommand(plugin));
+        register(new OpSubcommand());
+        register(new PotatoSubcommand(plugin));
+        register(new ReloadSubcommand(plugin));
+        register(new RideSubcommand());
+        register(new SaySubcommand());
+        register(new ShuffleSubcommand());
+        register(new SmiteSubcommand());
+        register(new StarveSubcommand());
+        register(new TntSubcommand(plugin));
+        register(new UnpotatoSubcommand(plugin));
+        register(new WolfSubcommand(plugin));
+
+        register(new BindSubcommand(plugin));
+        register(new GuiSubcommand(plugin));
+        register(new HelpSubcommand(subcommands));
     }
 
     @Override

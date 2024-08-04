@@ -30,12 +30,7 @@ public class RideSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.ride";
-    }
-
-    @Override
-    public String getUsage() {
-        return "ride <entity>";
+    public String getName() {
+        return "ride";
     }
 }

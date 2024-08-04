@@ -19,12 +19,7 @@ public class ReloadSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.reload";
-    }
-
-    @Override
-    public String getUsage() {
+    public String getName() {
         return "reload";
     }
 }

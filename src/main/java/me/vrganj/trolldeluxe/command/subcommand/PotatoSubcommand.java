@@ -54,12 +54,7 @@ public class PotatoSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.potato";
-    }
-
-    @Override
-    public String getUsage() {
-        return "potato <players>";
+    public String getName() {
+        return "potato";
     }
 }

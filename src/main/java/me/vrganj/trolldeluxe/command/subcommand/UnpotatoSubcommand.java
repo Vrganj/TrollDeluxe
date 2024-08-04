@@ -37,12 +37,7 @@ public class UnpotatoSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.unpotato";
-    }
-
-    @Override
-    public String getUsage() {
-        return "unpotato <players>";
+    public String getName() {
+        return "unpotato";
     }
 }

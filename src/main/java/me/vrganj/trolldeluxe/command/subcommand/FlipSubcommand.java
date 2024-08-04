@@ -27,12 +27,7 @@ public class FlipSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.flip";
-    }
-
-    @Override
-    public String getUsage() {
-        return "flip <entities>";
+    public String getName() {
+        return "flip";
     }
 }

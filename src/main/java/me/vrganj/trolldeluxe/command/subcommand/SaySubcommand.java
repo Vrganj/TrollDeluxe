@@ -22,12 +22,7 @@ public class SaySubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.say";
-    }
-
-    @Override
-    public String getUsage() {
-        return "say <players> <message>";
+    public String getName() {
+        return "say";
     }
 }

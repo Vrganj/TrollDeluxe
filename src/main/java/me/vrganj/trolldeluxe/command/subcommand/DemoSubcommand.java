@@ -35,12 +35,7 @@ public class DemoSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.demo";
-    }
-
-    @Override
-    public String getUsage() {
-        return "demo <players>";
+    public String getName() {
+        return "demo";
     }
 }

@@ -29,12 +29,7 @@ public class LaunchSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.launch";
-    }
-
-    @Override
-    public String getUsage() {
-        return "launch <entities>";
+    public String getName() {
+        return "launch";
     }
 }

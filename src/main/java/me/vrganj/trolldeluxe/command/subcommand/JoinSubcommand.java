@@ -23,12 +23,7 @@ public class JoinSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.join";
-    }
-
-    @Override
-    public String getUsage() {
-        return "join <fake player> <players>";
+    public String getName() {
+        return "join";
     }
 }

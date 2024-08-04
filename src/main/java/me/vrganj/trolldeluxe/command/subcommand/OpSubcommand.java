@@ -22,12 +22,7 @@ public class OpSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.op";
-    }
-
-    @Override
-    public String getUsage() {
-        return "op <players>";
+    public String getName() {
+        return "op";
     }
 }

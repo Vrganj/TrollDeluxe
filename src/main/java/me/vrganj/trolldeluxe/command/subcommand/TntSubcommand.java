@@ -30,12 +30,7 @@ public class TntSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.tnt";
-    }
-
-    @Override
-    public String getUsage() {
-        return "tnt <entities>";
+    public String getName() {
+        return "tnt";
     }
 }

@@ -22,12 +22,7 @@ public class KeepInventorySubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.keepinventory";
-    }
-
-    @Override
-    public String getUsage() {
-        return "keepinventory <players>";
+    public String getName() {
+        return "keepinventory";
     }
 }

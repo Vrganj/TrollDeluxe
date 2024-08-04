@@ -17,7 +17,6 @@ public class WolfSubcommand extends Subcommand {
         this.plugin = plugin;
     }
 
-
     @Override
     public void execute(CommandSender sender, String[] args) throws CommandException {
         Collection<Player> targets = consumePlayers(sender, args, 1);
@@ -36,12 +35,7 @@ public class WolfSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.wolf";
-    }
-
-    @Override
-    public String getUsage() {
-        return "wolf <players>";
+    public String getName() {
+        return "wolf";
     }
 }

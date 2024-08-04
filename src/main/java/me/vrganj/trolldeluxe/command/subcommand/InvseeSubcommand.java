@@ -22,12 +22,7 @@ public class InvseeSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.invsee";
-    }
-
-    @Override
-    public String getUsage() {
-        return "invsee <player>";
+    public String getName() {
+        return "invsee";
     }
 }

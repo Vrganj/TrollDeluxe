@@ -22,12 +22,7 @@ public class BurnSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.burn";
-    }
-
-    @Override
-    public String getUsage() {
-        return "burn <entities>";
+    public String getName() {
+        return "burn";
     }
 }

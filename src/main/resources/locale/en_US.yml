@@ -11,10 +11,12 @@ command:
 subcommand:
   anvil:
     description: "Drop an anvil on entities"
+    usage: "anvil <entities>"
     dropped: "&fDropped an anvil on &e{0} entities!"
 
   bind:
     description: "Bind an item to a troll"
+    usage: "bind <troll>"
     invalid-item: "&cYou can't bind air!"
     no-binding: "&cUse /trolldeluxe bind <troll> while holding an item"
     binding-removed: "&aRemoved binding from your item!"
@@ -22,56 +24,69 @@ subcommand:
 
   blind:
     description: "Blind players for a minute"
+    usage: "blind <players>"
     blinded: "Blinded &e{0} players!"
 
   burn:
     description: "Set entities on fire"
+    usage: "burn <entities>"
     burned: "Set &e{0} entities &fon fire!"
 
   bury:
     description: "Bury entities underground"
+    usage: "bury <entities>"
     buried: "&e{0} entities &fhave been buried!"
 
   cage:
     description: "Spawn a bedrock cage around entities"
+    usage: "cage <entities>"
     caged: "&e{0} entities &fhave been caged!"
 
   carry:
     description: "Carry entities"
+    usage: "carry <entities>"
     carrying: "Started carrying &e{0} entities!"
 
   creeper:
     description: "Play a creeper sound to players"
+    usage: "creeper <players>"
     creeped: "&e{0} players &fhave been creeped out!"
 
   deathbed:
     description: "Set players' health to half a heart"
+    usage: "deathbed <players>"
     damaged: "&e{0} players &fhave been damaged to half a heart!"
 
   demo:
     description: "Show a demo screen to players"
+    usage: "demo <players>"
     displayed: "Displayed demo screen to &e{0}!"
 
   eco:
     description: "Show a fake balance change to players"
+    usage: "eco <players>"
     message: "&a$1000000 has been added to your account."
     showed: "Showed a fake eco message to &e{0} players!"
 
   flip:
     description: "Flip entities to the opposite direction!"
+    usage: "flip <entities>"
     flipped: "Flipped &e{0} entities!"
 
   freeze:
     description: "Freeze players for a minute"
+    usage: "freeze <players>"
     froze: "Froze &e{0} entities!"
 
   gmc:
     description: "Send a fake gamemode change message"
+    usage: "gmc <players>"
     message: "&7&o[Server: Set {0}''s game mode to Creative Mode]"
     sent: "Sent a fake gmc message to &e{0} players!"
 
   gui:
     description: "Open a simple troll GUI"
+    usage: "gui <entities>"
     note:
       name: "&eAnd that's not all!"
       lore:
@@ -90,6 +105,7 @@ subcommand:
 
   help:
     description: "List all of the subcommands or show info about a specific one"
+    usage: "help <subcommand>"
     subcommands: "&f/trolldeluxe subcommands:"
     message:
       subcommand: "&8» &e{0} &f{1}"
@@ -100,64 +116,79 @@ subcommand:
 
   invsee:
     description: "Mess around with a player's inventory"
+    usage: "invsee <player>"
     opened: "&fOpened inventory of &e{0}!"
 
   join:
     description: "Send a fake player join message"
+    usage: "join <fake player> <players>"
     message: "&e{0} &ejoined the game"
     sent: "Sent a fake join message to &e{0} entities!"
 
   keepinventory:
     description: "Send a fake keepInventory message"
+    usage: "keepinventory <players>"
     message: "&7&o[Server: Gamerule keepInventory is now set to: true]"
     sent: "Sent fake keepInventory message to &e{0}!"
 
   launch:
     description: "Launch entities far up into the sky"
+    usage: "launch <entities>"
     launched: "Launched &e{0} entities!"
 
   op:
     description: "Send a fake op message"
+    usage: "op <players>"
     message: "&7&o[Server: Made {0} a server operator]"
     sent: "Sent a fake op message to &e{0} players!"
 
   potato:
     description: "Fill players up with potatoes!"
+    usage: "potato <players>"
     potatoed: "&e{0} &fhave been potatoed!"
 
   reload:
     description: "Reload the configuration"
+    usage: "reload"
     reloaded: "Reloaded the configuration!"
 
   ride:
     description: "Ride on top of an entity"
+    usage: "ride <entity>"
     riding: "&fRiding &e{0}!"
     self: "&cYou can't ride yourself"
 
   say:
     description: "Make players say or execute something"
+    usage: "say <players> <message>"
     said: "Made &e{0} players &fsay &e{1}&e!"
 
   shuffle:
     description: "Shuffle the positions of entities!"
+    usage: "shuffle <entities>"
     shuffled: "Shuffled &e{0} entities!"
 
   smite:
     description: "Strike players with no damage"
+    usage: "smite <players>"
     struck: "&e{0} entities &fhave been struck!"
 
   starve:
     description: "Clear players' hunger bar"
+    usage: "starve <players>"
     starved: "Starved &e{0} players!"
 
   tnt:
     description: "Spawn TNT next to entities"
+    usage: "tnt <entities>"
     spawned: "Spawned TNT next to &e{0} entities!"
 
   unpotato:
     description: "Undo the potato troll!"
+    usage: "unpotato <players>"
     unpotatoed: "&e{0} &fhave been unpotatoed!"
 
   wolf:
     description: "Summon angry wolves"
+    usage: "wolf <players>"
     spawned: "Spawned wolves around &e{0} players!"

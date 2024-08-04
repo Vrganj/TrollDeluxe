@@ -22,12 +22,7 @@ public class StarveSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.starve";
-    }
-
-    @Override
-    public String getUsage() {
-        return "starve <players>";
+    public String getName() {
+        return "starve";
     }
 }

@@ -24,12 +24,7 @@ public class BlindSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.blind";
-    }
-
-    @Override
-    public String getUsage() {
-        return "blind <players>";
+    public String getName() {
+        return "blind";
     }
 }

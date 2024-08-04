@@ -56,12 +56,7 @@ public class CarrySubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.carry";
-    }
-
-    @Override
-    public String getUsage() {
-        return "carry <entities>";
+    public String getName() {
+        return "carry";
     }
 }

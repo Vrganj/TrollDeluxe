@@ -35,12 +35,7 @@ public class ShuffleSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.shuffle";
-    }
-
-    @Override
-    public String getUsage() {
-        return "shuffle <entities>";
+    public String getName() {
+        return "shuffle";
     }
 }

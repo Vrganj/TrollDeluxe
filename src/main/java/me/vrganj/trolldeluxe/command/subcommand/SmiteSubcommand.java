@@ -22,12 +22,7 @@ public class SmiteSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.smite";
-    }
-
-    @Override
-    public String getUsage() {
-        return "smite <players>";
+    public String getName() {
+        return "smite";
     }
 }

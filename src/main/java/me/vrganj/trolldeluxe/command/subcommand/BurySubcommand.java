@@ -29,12 +29,7 @@ public class BurySubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.bury";
-    }
-
-    @Override
-    public String getUsage() {
-        return "bury <entities>";
+    public String getName() {
+        return "bury";
     }
 }

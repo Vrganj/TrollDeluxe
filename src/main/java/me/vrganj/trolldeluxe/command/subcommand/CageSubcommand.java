@@ -35,12 +35,7 @@ public class CageSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.cage";
-    }
-
-    @Override
-    public String getUsage() {
-        return "cage <entities>";
+    public String getName() {
+        return "cage";
     }
 }

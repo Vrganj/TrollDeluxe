@@ -22,12 +22,7 @@ public class DeathbedSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.deathbed";
-    }
-
-    @Override
-    public String getUsage() {
-        return "deathbed <players>";
+    public String getName() {
+        return "deathbed";
     }
 }

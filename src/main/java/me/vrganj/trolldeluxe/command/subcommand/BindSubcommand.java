@@ -133,12 +133,7 @@ public class BindSubcommand extends Subcommand implements Listener {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.bind";
-    }
-
-    @Override
-    public String getUsage() {
-        return "bind <troll>";
+    public String getName() {
+        return "bind";
     }
 }

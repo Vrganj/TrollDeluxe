@@ -22,12 +22,7 @@ public class GmcSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.gmc";
-    }
-
-    @Override
-    public String getUsage() {
-        return "gmc <players>";
+    public String getName() {
+        return "gmc";
     }
 }

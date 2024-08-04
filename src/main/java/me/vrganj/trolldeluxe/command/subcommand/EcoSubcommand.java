@@ -22,12 +22,7 @@ public class EcoSubcommand extends Subcommand {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.eco";
-    }
-
-    @Override
-    public String getUsage() {
-        return "eco <players>";
+    public String getName() {
+        return "eco";
     }
 }

@@ -153,12 +153,7 @@ public class GuiSubcommand extends Subcommand implements Listener {
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.gui";
-    }
-
-    @Override
-    public String getUsage() {
-        return "gui <entities>";
+    public String getName() {
+        return "gui";
     }
 }

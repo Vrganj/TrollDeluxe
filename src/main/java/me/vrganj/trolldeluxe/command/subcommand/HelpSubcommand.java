@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class HelpSubcommand extends Subcommand {
+
     private final Map<String, Subcommand> subcommands;
 
     public HelpSubcommand(Map<String, Subcommand> subcommands) {
@@ -21,10 +22,13 @@ public class HelpSubcommand extends Subcommand {
         if (args.length < 2) {
             Util.sendLocalized(sender, "subcommand.help.subcommands");
 
-            for (Map.Entry<String, Subcommand> entry : subcommands.entrySet()) {
-                String name = entry.getKey();
-                Subcommand subcommand = entry.getValue();
-                Util.sendRawLocalized(sender, "subcommand.help.message.subcommand", subcommand.getUsage(), Util.getLocalized("subcommand." + name + ".description"));
+            for (String subcommand : subcommands.keySet()) {
+                Util.sendRawLocalized(
+                        sender,
+                        "subcommand.help.message.subcommand",
+                        Util.getLocalized("subcommand." + subcommand + ".usage"),
+                        Util.getLocalized("subcommand." + subcommand + ".description")
+                );
             }
 
             return;
@@ -38,18 +42,13 @@ public class HelpSubcommand extends Subcommand {
 
         Util.sendLocalized(sender, "subcommand.help.message.help", args[1].toLowerCase());
         Util.sendRawLocalized(sender, "subcommand.help.message.description", Util.getLocalized("subcommand." + args[1].toLowerCase() + ".description"));
-        Util.sendRawLocalized(sender, "subcommand.help.message.usage", subcommand.getUsage());
-        Util.sendRawLocalized(sender, "subcommand.help.message.permission", subcommand.getPermission());
+        Util.sendRawLocalized(sender, "subcommand.help.message.usage", Util.getLocalized("subcommand." + args[1].toLowerCase() + ".usage"));
+        Util.sendRawLocalized(sender, "subcommand.help.message.permission", subcommand.getName());
     }
 
     @Override
-    public String getPermission() {
-        return "trolldeluxe.help";
-    }
-
-    @Override
-    public String getUsage() {
-        return "help <subcommand>";
+    public String getName() {
+        return "help";
     }
 
     @Override
