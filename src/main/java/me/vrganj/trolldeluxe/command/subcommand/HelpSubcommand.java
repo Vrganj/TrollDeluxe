@@ -54,8 +54,10 @@ public class HelpSubcommand extends Subcommand {
     @Override
     public List<String> onTabComplete(CommandSender sender, String[] args) {
         if (args.length == 2) {
-            return subcommands.keySet().stream()
-                    .filter(arg -> arg.startsWith(args[1].toLowerCase()))
+            return subcommands.entrySet().stream()
+                    .filter(entry -> sender.hasPermission(entry.getValue().getPermission()))
+                    .map(Map.Entry::getKey)
+                    .filter(arg -> arg.toLowerCase().startsWith(args[1].toLowerCase()))
                     .collect(Collectors.toList());
         }
 
