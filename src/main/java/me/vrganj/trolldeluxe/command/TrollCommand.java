@@ -74,7 +74,9 @@ public class TrollCommand implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1) {
-            return subcommands.keySet().stream()
+            return subcommands.entrySet().stream()
+                    .filter(entry -> sender.hasPermission(entry.getValue().getPermission()))
+                    .map(Map.Entry::getKey)
                     .filter(arg -> arg.toLowerCase().startsWith(args[0].toLowerCase()))
                     .collect(Collectors.toList());
         } else if (args.length >= 2) {
