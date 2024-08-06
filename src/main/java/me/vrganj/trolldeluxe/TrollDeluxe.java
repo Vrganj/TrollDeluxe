@@ -14,6 +14,8 @@ public class TrollDeluxe extends JavaPlugin {
 
         saveDefaultConfig();
 
+        Util.loadLocalization(getConfig().getString("locale", "en_US"), getLogger());
+
         if (!getConfig().getBoolean("disable update check")) {
             UpdateChecker updateChecker = new UpdateChecker(this);
             Bukkit.getScheduler().runTaskAsynchronously(this, updateChecker::fetchVersion);

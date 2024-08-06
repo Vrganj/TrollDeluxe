@@ -7,9 +7,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.MessageFormat;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class Util {
@@ -18,8 +21,21 @@ public class Util {
         return ChatColor.translateAlternateColorCodes('&', text);
     }
 
-    // TODO: make configurable
-    private static final Configuration configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(TrollDeluxe.class.getClassLoader().getResourceAsStream("locale/en_US.yml")));
+    // TODO: move localization to its own class
+    private static Configuration configuration = null;
+
+    public static void loadLocalization(String locale, Logger logger) {
+        try (InputStream stream = TrollDeluxe.class.getClassLoader().getResourceAsStream("locale/" + locale + ".yml")) {
+            if (stream == null) {
+                logger.severe("Locale " + locale + " not found!");
+                return;
+            }
+
+            configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(stream));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static void sendLocalized(CommandSender target, String key, Object... values) {
         send(target, getLocalized(key, values));

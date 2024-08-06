@@ -1,0 +1,194 @@
+prefix: "&8[&6TrollDeluxe&8] &f"
+
+update:
+  available: "Actualización disponible: &e{0} &8» &e{1}"
+
+command:
+  players-only: "&c¡Solo los jugadores pueden ejecutar este comando!"
+  invalid-subcommand: "&c¡Subcomando desconocido! Usa /td help"
+  invalid-version: "&c¡Este comando solo funciona en {0}!"
+
+subcommand:
+  anvil:
+    description: "Deja caer un yunque sobre las entidades"
+    usage: "anvil <entities>"
+    dropped: "&fSe dejó caer un yunque sobre &e{0} entidades!"
+
+  bind:
+    description: "Vincula un ítem a una broma"
+    usage: "bind <troll>"
+    invalid-item: "&c¡No puedes vincular aire!"
+    no-binding: "&cUsa /trolldeluxe bind <troll> mientras sostienes un ítem"
+    binding-removed: "&a¡Se ha eliminado la vinculación de tu ítem!"
+    binding-created: "&aVinculado {0} a {1}"
+
+  blind:
+    description: "Ciega a los jugadores por un minuto"
+    usage: "blind <players>"
+    blinded: "Cegados &e{0} jugadores!"
+
+  burn:
+    description: "Prende fuego a las entidades"
+    usage: "burn <entities>"
+    burned: "Prendidas fuego &e{0} entidades!"
+
+  bury:
+    description: "Entierra a las entidades bajo tierra"
+    usage: "bury <entities>"
+    buried: "&e{0} entidades &fhan sido enterradas!"
+
+  cage:
+    description: "Genera una jaula de bedrock alrededor de las entidades"
+    usage: "cage <entities>"
+    caged: "&e{0} entidades &fhan sido enjauladas!"
+
+  carry:
+    description: "Lleva a las entidades"
+    usage: "carry <entities>"
+    carrying: "Empezaste a llevar a &e{0} entidades!"
+
+  creeper:
+    description: "Reproduce un sonido de creeper a los jugadores"
+    usage: "creeper <players>"
+    creeped: "&e{0} jugadores &fhan sido asustados!"
+
+  deathbed:
+    description: "Reduce la salud de los jugadores a medio corazón"
+    usage: "deathbed <players>"
+    damaged: "&e{0} jugadores &fhan sido reducidos a medio corazón!"
+
+  demo:
+    description: "Muestra una pantalla de demostración a los jugadores"
+    usage: "demo <players>"
+    displayed: "Pantalla de demostración mostrada a &e{0}!"
+
+  eco:
+    description: "Muestra un cambio de saldo falso a los jugadores"
+    usage: "eco <players>"
+    message: "&a$1000000 han sido añadidos a tu cuenta."
+    showed: "Mensaje eco falso mostrado a &e{0} jugadores!"
+
+  flip:
+    description: "Voltea a las entidades en la dirección opuesta"
+    usage: "flip <entities>"
+    flipped: "Volteadas &e{0} entidades!"
+
+  freeze:
+    description: "Congela a los jugadores por un minuto"
+    usage: "freeze <players>"
+    froze: "Congeladas &e{0} entidades!"
+
+  gmc:
+    description: "Envía un mensaje falso de cambio de modo de juego"
+    usage: "gmc <players>"
+    message: "&7&o[Server: Set {0}''s game mode to Creative Mode]"
+    sent: "Mensaje gmc falso enviado a &e{0} jugadores!"
+
+  gui:
+    description: "Abre una GUI de broma simple"
+    usage: "gui <entities>"
+    note:
+      name: "&e¡Y eso no es todo!"
+      lore:
+          - ""
+          - "&r&fHay más bromas que"
+          - "&r&fpuedes usar, pero que no están"
+          - "&r&fen la GUI de bromas actualmente!"
+          - ""
+          - "&r&e/td help"
+    troll:
+      lore:
+        - ""
+        - "&r&f{0}"
+        - ""
+        - "&r&e(Haz clic derecho para obtener ayuda)"
+
+  help:
+    description: "Lista todos los subcomandos o muestra información sobre uno específico"
+    usage: "help <subcommand>"
+    subcommands: "&f/trolldeluxe subcommands:"
+    message:
+      subcommand: "&8» &e{0} &f{1}"
+      help: "&e/trolldeluxe {0} &fhelp:"
+      description: "&8» &eDescripción: &f{0}"
+      usage: "&8» &eUso: &f/td {0}"
+      permission: "&8» &ePermiso: &f{0}"
+
+  invsee:
+    description: "Juega con el inventario de un jugador"
+    usage: "invsee <player>"
+    opened: "&fAbierto el inventario de &e{0}!"
+
+  join:
+    description: "Envía un mensaje falso de entrada de jugador"
+    usage: "join <fake player> <players>"
+    message: "&e{0} &ejoined the game"
+    sent: "Mensaje falso de entrada enviado a &e{0} entidades!"
+
+  keepinventory:
+    description: "Envía un mensaje falso de keepInventory"
+    usage: "keepinventory <players>"
+    message: "&7&o[Server: Gamerule keepInventory is now set to: true]"
+    sent: "Mensaje falso de keepInventory enviado a &e{0}!"
+
+  launch:
+    description: "Lanza a las entidades lejos hacia el cielo"
+    usage: "launch <entities>"
+    launched: "Lanzadas &e{0} entidades!"
+
+  op:
+    description: "Envía un mensaje falso de op"
+    usage: "op <players>"
+    message: "&7&o[Server: Made {0} a server operator]"
+    sent: "Mensaje falso de op enviado a &e{0} jugadores!"
+
+  potato:
+    description: "Llena a los jugadores de papas!"
+    usage: "potato <players>"
+    potatoed: "&e{0} &fhan sido llenados de papas!"
+
+  reload:
+    description: "Recarga la configuración"
+    usage: "reload"
+    reloaded: "¡Configuración recargada!"
+
+  ride:
+    description: "Monta sobre una entidad"
+    usage: "ride <entity>"
+    riding: "&fMontando sobre &e{0}!"
+    self: "&cNo puedes montarte a ti mismo"
+
+  say:
+    description: "Haz que los jugadores digan o ejecuten algo"
+    usage: "say <players> <message>"
+    said: "Hecho que &e{0} jugadores &fdigan &e{1}&e!"
+
+  shuffle:
+    description: "Baraja las posiciones de las entidades!"
+    usage: "shuffle <entities>"
+    shuffled: "Barajadas &e{0} entidades!"
+
+  smite:
+    description: "Golpea a los jugadores sin hacer daño"
+    usage: "smite <players>"
+    struck: "&e{0} entidades &fhan sido golpeadas!"
+
+  starve:
+    description: "Vacía la barra de hambre de los jugadores"
+    usage: "starve <players>"
+    starved: "Hambre vaciada a &e{0} jugadores!"
+
+  tnt:
+    description: "Genera TNT junto a las entidades"
+    usage: "tnt <entities>"
+    spawned: "Generada TNT junto a &e{0} entidades!"
+
+  unpotato:
+    description: "Deshaz la broma de las papas!"
+    usage: "unpotato <players>"
+    unpotatoed: "&e{0} &fhan sido despapados!"
+
+  wolf:
+    description: "Invoca lobos enfadados"
+    usage: "wolf <players>"
+    spawned: "Lobos invocados alrededor de &e{0} jugadores!"

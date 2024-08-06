@@ -1,3 +1,8 @@
+# Currently available:
+# - english: en_US
+# - spanish: es_ES
+locale: en_US
+
 # How many ticks it takes for the TNT
 # spawned by /td tnt to blow up
 tnt fuse ticks: 40
